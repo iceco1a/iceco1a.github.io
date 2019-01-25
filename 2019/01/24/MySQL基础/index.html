@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="iceco1a">
 <meta property="og:description" content="关系型数据库基本概念严格来说，数据库(Database)仅仅是存放用户数据的地方。当用户访问、操作数据库中的数据时，就需要数据库管理系统的帮助。数据库管理系统的全称是Database Management System,简称DBMS。习惯上常常把数据库和数据库管理系统笼统地称为数据库,通常所说的数据库既包括存储用户数据的部分，也包括管理数据库的管理系统。 DBMS是所有数据的知识库，它负责管理数据">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-24T10:48:06.503Z">
+<meta property="og:updated_time" content="2019-01-25T06:06:08.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL基础">
 <meta name="twitter:description" content="关系型数据库基本概念严格来说，数据库(Database)仅仅是存放用户数据的地方。当用户访问、操作数据库中的数据时，就需要数据库管理系统的帮助。数据库管理系统的全称是Database Management System,简称DBMS。习惯上常常把数据库和数据库管理系统笼统地称为数据库,通常所说的数据库既包括存储用户数据的部分，也包括管理数据库的管理系统。 DBMS是所有数据的知识库，它负责管理数据">
@@ -82,7 +82,7 @@
 
 <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="is-2-column">
+<body class="is-3-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -120,6 +120,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -133,7 +137,7 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
     <div class="card-image">
         <span class="image is-7by1">
@@ -151,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    an hour read (About 10824 words)
+                    2 hours read (About 15405 words)
                 </span>
                 
             </div>
@@ -178,15 +182,15 @@
 <p>数据表是存储数据的逻辑单元，可以把数据表想象成由行和列组成的表格,其中每一行也被称为一条<strong>记录</strong>，每一列也被称为一个<strong>字段</strong>。为数据库建表时，通常需要指定该表包含多少列，每列的数据类型信息,无须指定该数据表包含多少行一因为 数据库表的行是动态改变的,每行用于保存一条用户数据。除此之外，还应该为每个数据表指定一个特殊列，该特殊列的值可以唯一地标识此行的记录，则该特殊列被称为主键列。</p>
 <hr>
 <h3 id="MySQL基本命令"><a href="#MySQL基本命令" class="headerlink" title="MySQL基本命令"></a>MySQL基本命令</h3><p>MySQL数据库的一个实例(Server Instance)可以同时包含多个数据库，MySQL 使用如下命令来查看当前实例下包含多少个数据库:</p>
-<p> <code>show database;</code></p>
-<p> MySQL默认以分号作为每条命令的结束符，所以在每条MySQL命令结束后都应该输一个英文分号(;).</p>
+<p><code>show database;</code></p>
+<p>MySQL默认以分号作为每条命令的结束符，所以在每条MySQL命令结束后都应该输一个英文分号(;).</p>
 <p>如果用户需要创建新的数据库，则可以使用如下命令:<br><code>create database [IF NOT EXISTS] 数据库名;</code></p>
 <p>如果用户需要删除指定数据库，则可以使用如下命令:<br><code>drop database 数据库名;</code></p>
 <p>建立了数据库之后，如果想操作该数据库(例如为该数据库建表，在该数据库中执行查询等操作),则需要进入该数据库。进入指定数据库可以使用如下命令:<br><code>use 数据库名;</code></p>
 <p>进入指定数据库后，如果需要查询该数据库下包含多少个数据表，则可以使用如下命令:<br><code>show tables;</code></p>
 <p>如果想查看指定数据表的表结构(查看该表有多少列，每列的数据类型等信息)，则可以使用如下命令:<br><code>desc表名</code></p>
-<p> MySQL基本登录命令<br> <code>mysql -P 密码 -u 用户名 -h 主机名 --default-character-set=utf8</code></p>
-<p> MySQL数据库通常支持如下两种存储机制。</p>
+<p>MySQL基本登录命令<br><code>mysql -P 密码 -u 用户名 -h 主机名 --default-character-set=utf8</code></p>
+<p>MySQL数据库通常支持如下两种存储机制。</p>
 <ul>
 <li>MyISAM:这是MySQL早期默认的存储机制，对事务支持不够好。</li>
 <li>InnoDB: InnoDB 提供事务安全的存储机制。InnoDB 通过建立行级锁来保证事务完整性，并以Oracle风格的共享锁来处理Select语句。系统默认启动InnoDB存储机制,如果不想使用InnoDB表，则可以使用skip-innodb选项。</li>
@@ -276,7 +280,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="创建表的语法"><a href="#创建表的语法" class="headerlink" title="创建表的语法"></a>创建表的语法</h5><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> [模式名.]表名</span><br><span class="line">(</span><br><span class="line">    <span class="hljs-comment">#可以有多个列定义</span></span><br><span class="line">    columnName1 datatype [<span class="hljs-keyword">default</span> expr])</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h5 id="创建表的语法"><a href="#创建表的语法" class="headerlink" title="创建表的语法"></a>创建表的语法</h5><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> [模式名.]表名</span><br><span class="line">(</span><br><span class="line"><span class="hljs-comment">#可以有多个列定义</span></span><br><span class="line">columnName1 datatype [<span class="hljs-keyword">default</span> expr])</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>下表为MySQL支持的数据类型</p>
 <table>
 <thead>
@@ -352,7 +356,7 @@
 </tr>
 </tbody>
 </table>
-<p>一例：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`test_first`</span> (</span><br><span class="line">  <span class="hljs-string">`test_id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">  <span class="hljs-string">`test_price`</span> <span class="hljs-built_in">decimal</span>(<span class="hljs-number">10</span>,<span class="hljs-number">0</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">  <span class="hljs-string">`test_name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">'xxxx'</span>,</span><br><span class="line">  <span class="hljs-string">`test_desc`</span> <span class="hljs-built_in">text</span>,</span><br><span class="line">  <span class="hljs-string">`test_img`</span> <span class="hljs-built_in">blob</span>,</span><br><span class="line">  <span class="hljs-string">`test_date`</span> datetime <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span></span><br><span class="line">) <span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8</span><br></pre></td></tr></table></figure></p>
+<p>一例：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`test_first`</span> (</span><br><span class="line"><span class="hljs-string">`test_id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line"><span class="hljs-string">`test_price`</span> <span class="hljs-built_in">decimal</span>(<span class="hljs-number">10</span>,<span class="hljs-number">0</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line"><span class="hljs-string">`test_name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">'xxxx'</span>,</span><br><span class="line"><span class="hljs-string">`test_desc`</span> <span class="hljs-built_in">text</span>,</span><br><span class="line"><span class="hljs-string">`test_img`</span> <span class="hljs-built_in">blob</span>,</span><br><span class="line"><span class="hljs-string">`test_date`</span> datetime <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span></span><br><span class="line">) <span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8</span><br></pre></td></tr></table></figure></p>
 <p>上面是比较常见的建表语句，这种建表语句只是创建一个空表,该表里没有任何数据。如果使用子查询建表语句，则可以在建表的同时插入数据。子查询建表语句的语法如下:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> [模式名.]表名 [<span class="hljs-keyword">column</span>[,column...]]</span><br><span class="line"><span class="hljs-keyword">as</span> subquery;</span><br></pre></td></tr></table></figure></p>
 <p>上面语法中新表的字段列表必须与子查询中的字段列表数量匹配，创建新表时的字段列表可以省略，如果省略了该字段列表，则新表的列名与选择结果完全相同。下面语句使用子查询来建表。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 创建hehe数据表，该数据表和user_ inf完全相同，数据也完全相同</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> hehe</span><br><span class="line"><span class="hljs-keyword">as</span></span><br><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> user_ inf;</span><br></pre></td></tr></table></figure></p>
 <h5 id="修改变结构语法"><a href="#修改变结构语法" class="headerlink" title="修改变结构语法"></a>修改变结构语法</h5><p>修改表结构使用alter table,修改表结构包括增加列定义、修改列定义、删除列、重命名列等操作。增加列定义的语法如下:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> 表名</span><br><span class="line"><span class="hljs-keyword">add</span></span><br><span class="line"><span class="hljs-comment">#可以有多个列定义</span></span><br><span class="line"><span class="hljs-keyword">column</span> name_l datatype [<span class="hljs-keyword">default</span> expr]，</span><br><span class="line">......</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
@@ -403,16 +407,16 @@
 <li>所有数据类型的值都可以是null, 包括int、 float、boolean等数据类型。</li>
 <li>与Java类似的是，空字符串不等于null, 0也不等于null。<br>如果需要在建表时为指定列指定非空约束，只要在列定义后增加not null即可。</li>
 </ul>
-<p>建表语句如下:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> hehe</span><br><span class="line">(</span><br><span class="line">  <span class="hljs-comment">#建立了非空约束，这意味着hehe_id不可以为null</span></span><br><span class="line">  hehe <span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  <span class="hljs-comment"># MySQL的非空约束不能指定名字</span></span><br><span class="line">  hehe <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) <span class="hljs-keyword">default</span> <span class="hljs-string">'xyz'</span> <span class="hljs-keyword">not</span> nul1 ,</span><br><span class="line">  <span class="hljs-comment">#下面列可以为空，默认就是可以为空</span></span><br><span class="line">  hehe gender <span class="hljs-built_in">varchar</span> (<span class="hljs-number">2</span>) nul1</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>建表语句如下:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> hehe</span><br><span class="line">(</span><br><span class="line"><span class="hljs-comment">#建立了非空约束，这意味着hehe_id不可以为null</span></span><br><span class="line">hehe <span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line"><span class="hljs-comment"># MySQL的非空约束不能指定名字</span></span><br><span class="line">hehe <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) <span class="hljs-keyword">default</span> <span class="hljs-string">'xyz'</span> <span class="hljs-keyword">not</span> nul1 ,</span><br><span class="line"><span class="hljs-comment">#下面列可以为空，默认就是可以为空</span></span><br><span class="line">hehe gender <span class="hljs-built_in">varchar</span> (<span class="hljs-number">2</span>) nul1</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <p>除此之外，也可以在使用alter table修改表时增加或者删除非空约束，SQL 命令如下:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#增加非空约束</span></span><br><span class="line"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> hehe</span><br><span class="line"><span class="hljs-keyword">modify</span> hehe gender <span class="hljs-built_in">varchar</span> (<span class="hljs-number">2</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span></span><br><span class="line"><span class="hljs-comment">#取消非空约束</span></span><br><span class="line"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> hehe</span><br><span class="line"><span class="hljs-keyword">modify</span> hehe <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">2</span>) <span class="hljs-literal">null</span>;</span><br><span class="line"><span class="hljs-comment">#取消非空约束，并指定默认值</span></span><br><span class="line"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> hehe</span><br><span class="line"><span class="hljs-keyword">modify</span> hehe <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) <span class="hljs-keyword">default</span> ‘abc<span class="hljs-string">' null;</span></span><br></pre></td></tr></table></figure></p>
 <h5 id="UNIQUE约束"><a href="#UNIQUE约束" class="headerlink" title="UNIQUE约束"></a>UNIQUE约束</h5><p>唯一约束用于保证指定列或指定列组合不允许出现重复值。虽然唯一约束的列不可以出现重复值，但可以出现多个null值(因为在数据库中null不等于null)。</p>
 <p>同一个表内可建多个唯一约束， 唯一约束也可由多列组合而成。<code>当为某列创建唯一约束时, MySQL会为该列相应地创建唯一索引。</code> 如果不给唯一约束起名，该唯一约束默认与列名相同。</p>
 <p>唯一约束既可以使用列级约束语法建立,也可以使用表级约束语法建立。如果需要为多列建组合约束，或者需要为唯一约束指定约束名，则只能用表级约束语法。</p>
 <p>当建立唯一约束时，MySQL 在唯一约束所在列或列组合上建立对应的唯一索引。</p>
 <p>使用列级约束语法建立唯一约束非常简单，只要简单地在列定义后增加unique关键字即可。SQL语句如下:</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#建表时创建唯一约束，使用列级约束语法建立约束</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> unique_test</span><br><span class="line">(</span><br><span class="line">   <span class="hljs-comment">#建立了非空约束，这意味着test_id不可以为null</span></span><br><span class="line">   test_id <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>, </span><br><span class="line">   <span class="hljs-comment">#unique就是唯一约束，使用列级约束语法建立唯一约束</span></span><br><span class="line">   test_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) <span class="hljs-keyword">unique</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#建表时创建唯一约束，使用列级约束语法建立约束</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> unique_test</span><br><span class="line">(</span><br><span class="line"><span class="hljs-comment">#建立了非空约束，这意味着test_id不可以为null</span></span><br><span class="line">test_id <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>, </span><br><span class="line"><span class="hljs-comment">#unique就是唯一约束，使用列级约束语法建立唯一约束</span></span><br><span class="line">test_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) <span class="hljs-keyword">unique</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p>如果需要为多列组合建立唯一约束,或者想自行指定约束名，则需要使用表级约束语法。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[constraint 约束名]约束定义</span><br></pre></td></tr></table></figure></p>
-<p>上面的表级约束语法格式既可放在create table语句中与列定义并列，也可放在alter table语句中使用add关键字来添加约束。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#建表时创建唯约束，使用表级约束语法建立约束</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> unique_test2</span><br><span class="line">(</span><br><span class="line">     <span class="hljs-comment">#建立了非空约束，这意味着test_id不可以为null</span></span><br><span class="line">     test_id <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">     test_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">     test_pass <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">     <span class="hljs-comment">#使用表级约束语法建立唯一约束</span></span><br><span class="line">     <span class="hljs-keyword">unique</span> (test_name)，</span><br><span class="line">     <span class="hljs-comment">#使用表级约束语法建立唯一约束，而且指定约束名</span></span><br><span class="line">     <span class="hljs-keyword">constraint</span> test2_uk <span class="hljs-keyword">unique</span>(test_pass)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>上面的表级约束语法格式既可放在create table语句中与列定义并列，也可放在alter table语句中使用add关键字来添加约束。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#建表时创建唯约束，使用表级约束语法建立约束</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> unique_test2</span><br><span class="line">(</span><br><span class="line"><span class="hljs-comment">#建立了非空约束，这意味着test_id不可以为null</span></span><br><span class="line">test_id <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">test_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">test_pass <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line"><span class="hljs-comment">#使用表级约束语法建立唯一约束</span></span><br><span class="line"><span class="hljs-keyword">unique</span> (test_name)，</span><br><span class="line"><span class="hljs-comment">#使用表级约束语法建立唯一约束，而且指定约束名</span></span><br><span class="line"><span class="hljs-keyword">constraint</span> test2_uk <span class="hljs-keyword">unique</span>(test_pass)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <p>上面的建表语句为test_name、test_pass 分别建立了唯一约束， 这意味着这两列都不能出现重复值。除此之外，还可以为这两列组合建立唯一约束。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#建表时创建唯一约束，使用表级约束语法建立约束</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> unique_test3</span><br><span class="line">(</span><br><span class="line"><span class="hljs-comment">#建立了非空约束，这意味着test_id不可以为null</span></span><br><span class="line">test_id <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">test_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">test_pass <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)，</span><br><span class="line"><span class="hljs-comment">#使用表级约束语法建立唯一约束，指定两列组合不允许重复</span></span><br><span class="line"><span class="hljs-keyword">constraint</span> test3_uk <span class="hljs-keyword">unique</span>(test_name,test_pass)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <p>对于上面的unique_test2 和unique_test3两个表,都是对test_ name、test_pass建立唯一约束，其中unique_test2要求test_ name、test_pass都不能出现重复值，而unique_test3只要求test_name、test_pass两列值的组合不能重复。</p>
 <p>也可以在修改表结构时使用add关键字来增加唯一约束<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#增加唯一约束</span></span><br><span class="line"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> unique_test3</span><br><span class="line"><span class="hljs-keyword">add</span> <span class="hljs-keyword">unique</span> (test_name, test_pass) ;</span><br></pre></td></tr></table></figure></p>
@@ -421,14 +425,14 @@
 <h5 id="PRIMARY-KEY约束"><a href="#PRIMARY-KEY约束" class="headerlink" title="PRIMARY KEY约束"></a>PRIMARY KEY约束</h5><p>主键约束相当于非空约束和唯一约束， 即主键约束的列既不允许出现重复值，也不允许出现null值;如果对多列组合建立主键约束,则多列里包含的每一列都不能为空，但只要求这些列组合不能重复。主键列的值可用于唯一地标识表中的一条记录。</p>
 <p>每一个表中<strong>最多允许有一个主键</strong>,但这个主键约束可由多个数据列组合而成，主键是表中能唯一确定一行记录的字段或字段组合。</p>
 <p>建立主键约束时既可使用列级约束语法，也可使用表级约束语法。如果需要对多个字段建立组合主键约束，则只能使用表级约束语法。使用表级约束语法来建立约束时，可以为该约束指定约束名。但不管用户是否为该主键约束指定约束名，MySQL总是将所有的主键约束命名为PRIMARY。</p>
-<p>建表时创建主键约束，使用列级约束语法:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> primary_ <span class="hljs-keyword">test</span></span><br><span class="line">(</span><br><span class="line">    <span class="hljs-comment">#建立了主键约束</span></span><br><span class="line">    <span class="hljs-keyword">test</span> <span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span> primary <span class="hljs-keyword">key</span>,</span><br><span class="line">    test_ <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>建表时创建主键约束，使用表级约束语法:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> primary_test2</span><br><span class="line">(</span><br><span class="line">    test_id <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">    test_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">    test_pass <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">    <span class="hljs-comment">#井指定主键约束名为test2_pk,对大部分数据库有效,但对MySQL无效     #MySQL数据库中该主键约束名依然是PRIMARY</span></span><br><span class="line">    <span class="hljs-keyword">constraint</span> test2_pk primary <span class="hljs-keyword">key</span>(test_id) </span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>建表时创建主键约束，以多列建立组合主键，只能使用表级约束语法:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> primary_test3</span><br><span class="line">（</span><br><span class="line">    test_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)，</span><br><span class="line">    test_pass <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">    并建立多列组合的主键约束</span><br><span class="line">    primary <span class="hljs-keyword">key</span>(test_name, test_pass)</span><br><span class="line"> );</span><br></pre></td></tr></table></figure></p>
+<p>建表时创建主键约束，使用列级约束语法:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> primary_ <span class="hljs-keyword">test</span></span><br><span class="line">(</span><br><span class="line"><span class="hljs-comment">#建立了主键约束</span></span><br><span class="line"><span class="hljs-keyword">test</span> <span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span> primary <span class="hljs-keyword">key</span>,</span><br><span class="line">test_ <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>建表时创建主键约束，使用表级约束语法:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> primary_test2</span><br><span class="line">(</span><br><span class="line">test_id <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">test_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">test_pass <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line"><span class="hljs-comment">#井指定主键约束名为test2_pk,对大部分数据库有效,但对MySQL无效     #MySQL数据库中该主键约束名依然是PRIMARY</span></span><br><span class="line"><span class="hljs-keyword">constraint</span> test2_pk primary <span class="hljs-keyword">key</span>(test_id) </span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>建表时创建主键约束，以多列建立组合主键，只能使用表级约束语法:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> primary_test3</span><br><span class="line">（</span><br><span class="line">test_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)，</span><br><span class="line">test_pass <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">并建立多列组合的主键约束</span><br><span class="line">primary <span class="hljs-keyword">key</span>(test_name, test_pass)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <p>如果需要删除指定表的主键约束,则在alter table 语句后使用drop primary key子句即可。SQL语如下:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#删除主键约束</span></span><br><span class="line"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> primary test3</span><br><span class="line"><span class="hljs-keyword">drop</span> primary <span class="hljs-keyword">key</span>;</span><br></pre></td></tr></table></figure></p>
 <p>如果需要为指定表增加主键约束，既可通过modify修改列定义来增加主键约束，这将采用列级约束语法来增加主键约束;也可通过add来增加主键约束，这将采用表级约束语法来增加主键约束。SQL语句如下:<br>普使用表级约束语法增加主键约束<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> primary_test3</span><br><span class="line"><span class="hljs-keyword">add</span> primary <span class="hljs-keyword">key</span>(test_name, test_pass);</span><br></pre></td></tr></table></figure></p>
 <p>如果只是为单独的数据列增加主键约束,则可使用modify修改列定义来实现:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#使用列级约束语法增加主键约束</span></span><br><span class="line"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> primary test3</span><br><span class="line"><span class="hljs-keyword">modify</span> <span class="hljs-keyword">test</span> <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) primary <span class="hljs-keyword">key</span>;</span><br></pre></td></tr></table></figure></p>
 <p>不要连续执行上面两条SQL语句，因为上面两条SQL语句都是为primary_test3增加主键约束，而同一个表里最多只能有一个主键约束，所以连续执行上面两条SQL语句肯定出现错误。为了避免这个问题，可以在成功执行了第一条增加主键约束的SQL语句之后，先将primary_test3里的主键约束删除后再执行第二条增加主键约束的SQL语句。</p>
-<p>很多数据库对主键列都支持一种自增长的特性,如果某个数据列的类型是整型,而且该列作为主键列，则可指定该列具有自增长功能。指定自增长功能通常用于设置逻辑主键列,该列的值没有任何物理意义，仅仅用于标识每行记录。MySQL使用auto_increment来设置自增长.<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> primary_test4</span><br><span class="line">   <span class="hljs-comment">#建立主键约束，使用自增长</span></span><br><span class="line">   test_id <span class="hljs-built_in">int</span> auto_increment primary <span class="hljs-keyword">key</span>,</span><br><span class="line">   test_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)，</span><br><span class="line">   test_pass <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>很多数据库对主键列都支持一种自增长的特性,如果某个数据列的类型是整型,而且该列作为主键列，则可指定该列具有自增长功能。指定自增长功能通常用于设置逻辑主键列,该列的值没有任何物理意义，仅仅用于标识每行记录。MySQL使用auto_increment来设置自增长.<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> primary_test4</span><br><span class="line"><span class="hljs-comment">#建立主键约束，使用自增长</span></span><br><span class="line">test_id <span class="hljs-built_in">int</span> auto_increment primary <span class="hljs-keyword">key</span>,</span><br><span class="line">test_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)，</span><br><span class="line">test_pass <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <p>一旦指定了某列具有自增长特性，则向该表插入记录时可不为该列指定值,该列的值由数据库系统自动生成。</p>
 <h5 id="FOREIGN-KEY-约束"><a href="#FOREIGN-KEY-约束" class="headerlink" title="FOREIGN KEY 约束"></a>FOREIGN KEY 约束</h5><p>外键约束主要用于保证一个或两个数据表之间的参照完整性,外键是构建于一个表的两个字段或者两个表的两个字段之间的参照关系。外键确保了相关的两个字段的参照关系:子(从)表外键列的值必须在主表被参照列的值范围之内，或者为空(也可以通过非空约束来约束外键列不允许为空)。</p>
 <p>当主表的记录被从表记录参照时，主表记录不允许被删除，必须先把从表里参照该记录的所有记录全部删除后，才可以删除主表的该记录。还有一种方式,删除主表记录时级联删除从表中所有参照该记录的从表记录。</p>
@@ -436,17 +440,17 @@
 <p>建立外键约束时，MySQL也会为该列建立索引。</p>
 <p>外键约束通常用于定义两个实体之间的一对多、一对一的关联关系。对于一对多的关联关系,通常在多的一端增加外键列，例如老师一学生(假设一个老师对应多个学生，但每个学生只有一个老师,这是典型的一对多的关联关系)。为了建立他们之间的关联关系，可以在学生表中增加一个外键列，该列中保存此条学生记录对应老师的主键。对于一对一的关联关系，则可选择任意一方来增加外键列,增加外键列的表被称为从表,只要为外键列增加唯一约束就可表示一对一的关联关系了。对于多对多的关联关系，则需要额外增加一个连接表来记录它们的关联关系。</p>
 <p>建立外键约束同样可以采用列级约束语法和表级约束语法。如果仅对单独的数据列建立外键约束，则使用列级约束语法即可;如果需要对多列组合创建外键约束，或者需要为外键约束指定名字,则必须使用表级约束语法。</p>
-<p>采用列级约束语法建立外键约束直接使用references关键字, references 指定该列参照哪个主表，以及参照主表的哪一列。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#为了保证从表参照的主表存在，通常应该先建主表</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> teacher_table</span><br><span class="line">(</span><br><span class="line">    <span class="hljs-comment">#auto_increment: 代表数据库的自动编号策略，通常用作数据表的      逻辑主键</span></span><br><span class="line">    teacher_id <span class="hljs-built_in">int</span> auto_increment,</span><br><span class="line">    teacher_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">    primary_key(teacher_id)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> student_table(</span><br><span class="line"><span class="hljs-comment">#为本表建立主键约束</span></span><br><span class="line">student_id <span class="hljs-built_in">int</span> auto_increment primary <span class="hljs-keyword">key</span>,</span><br><span class="line">student_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>)，</span><br><span class="line"><span class="hljs-comment">#指定java_teacher参照到teacher_table的teacher_id列</span></span><br><span class="line">java_teacher <span class="hljs-built_in">int</span> <span class="hljs-keyword">references</span> teacher_table (teacher <span class="hljs-keyword">id</span>));</span><br></pre></td></tr></table></figure></p>
+<p>采用列级约束语法建立外键约束直接使用references关键字, references 指定该列参照哪个主表，以及参照主表的哪一列。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#为了保证从表参照的主表存在，通常应该先建主表</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> teacher_table</span><br><span class="line">(</span><br><span class="line"><span class="hljs-comment">#auto_increment: 代表数据库的自动编号策略，通常用作数据表的      逻辑主键</span></span><br><span class="line">teacher_id <span class="hljs-built_in">int</span> auto_increment,</span><br><span class="line">teacher_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">primary_key(teacher_id)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> student_table(</span><br><span class="line"><span class="hljs-comment">#为本表建立主键约束</span></span><br><span class="line">student_id <span class="hljs-built_in">int</span> auto_increment primary <span class="hljs-keyword">key</span>,</span><br><span class="line">student_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>)，</span><br><span class="line"><span class="hljs-comment">#指定java_teacher参照到teacher_table的teacher_id列</span></span><br><span class="line">java_teacher <span class="hljs-built_in">int</span> <span class="hljs-keyword">references</span> teacher_table (teacher <span class="hljs-keyword">id</span>));</span><br></pre></td></tr></table></figure></p>
 <p>值得指出的是，虽然MySQL支持使用列级约束语法来建立外键约束,但这种列级约束语法建立的外键约束不会生效，MySQL提供这种列级约束语法仅仅是为了和标准SQL保持良好的兼容性。因此，如果要使MySQL中的外键约束生效，则应使用表级约束语法。</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#为了保证从表参照的主表存在，通常应该先建主表</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> teacher_tablel</span><br><span class="line">(</span><br><span class="line"><span class="hljs-comment">#auto_increment:代表数据库的自动编号策略，通常用作数据表的逻辑主键</span></span><br><span class="line">    teacher_id <span class="hljs-built_in">int</span> auto_increment,</span><br><span class="line">    teacher_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">    primary <span class="hljs-keyword">key</span> (teacher_id)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> student_table1</span><br><span class="line">(</span><br><span class="line">    <span class="hljs-comment">#为本表建立主键约束</span></span><br><span class="line">    student_id <span class="hljs-built_in">int</span> auto_increment primary <span class="hljs-keyword">key</span>,</span><br><span class="line">    student_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)，</span><br><span class="line">    <span class="hljs-comment">#指定java_teacher参照到teacher_tablel的teacher_id列</span></span><br><span class="line">    java_teacher <span class="hljs-built_in">int</span>,</span><br><span class="line">    <span class="hljs-keyword">foreign</span> <span class="hljs-keyword">key</span>(java_teacher) <span class="hljs-keyword">references</span> teacher_tablel     (teacher_id));</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#为了保证从表参照的主表存在，通常应该先建主表</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> teacher_tablel</span><br><span class="line">(</span><br><span class="line"><span class="hljs-comment">#auto_increment:代表数据库的自动编号策略，通常用作数据表的逻辑主键</span></span><br><span class="line">teacher_id <span class="hljs-built_in">int</span> auto_increment,</span><br><span class="line">teacher_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">primary <span class="hljs-keyword">key</span> (teacher_id)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> student_table1</span><br><span class="line">(</span><br><span class="line"><span class="hljs-comment">#为本表建立主键约束</span></span><br><span class="line">student_id <span class="hljs-built_in">int</span> auto_increment primary <span class="hljs-keyword">key</span>,</span><br><span class="line">student_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)，</span><br><span class="line"><span class="hljs-comment">#指定java_teacher参照到teacher_tablel的teacher_id列</span></span><br><span class="line">java_teacher <span class="hljs-built_in">int</span>,</span><br><span class="line"><span class="hljs-keyword">foreign</span> <span class="hljs-keyword">key</span>(java_teacher) <span class="hljs-keyword">references</span> teacher_tablel     (teacher_id));</span><br></pre></td></tr></table></figure>
 <p>如果使用表级约束语法，则需要使用foreige key来指定本表的外键列，并使用references来指定参照哪个主表，以及参照到主表的哪个数据列。使用表级约束语法可以为外键约束指定约束名,如果创建外键约束时没有指定约束名，则MySQL会为该外键约束命名为table_name_ibfk_n, 其中table_name 是从表的表名，而n是从1开始的整数。</p>
 <p>如果需要显式指定外键约束的名字，则可使用constraint来指定名字。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#为了保证从表参照的主表存在，通常应该先建主表</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> teacher_table2</span><br><span class="line"><span class="hljs-comment">#auto increment:代表数据库的自动编号策略，通常用作数据表的逻辑主键</span></span><br><span class="line">teacher_id <span class="hljs-built_in">int</span> auto_increment,</span><br><span class="line">teacher_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) ,</span><br><span class="line">primary <span class="hljs-keyword">key</span> (teacher_id)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> student_table2</span><br><span class="line"><span class="hljs-comment">#为本表建立主键约束</span></span><br><span class="line">student_id <span class="hljs-built_in">int</span> auto_increment primary <span class="hljs-keyword">key</span>,</span><br><span class="line">student_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>)，</span><br><span class="line">java_teacher <span class="hljs-built_in">int</span>,</span><br><span class="line"><span class="hljs-comment">#使用表级约束语法建立外键约束，指定外键约束的约束名为student_ teacher_fk</span></span><br><span class="line"><span class="hljs-keyword">constraint</span> student_teacher_fk <span class="hljs-keyword">foreign</span> <span class="hljs-keyword">key</span> (java_teacher) <span class="hljs-keyword">references</span> teacher_table2 (teacher_id));</span><br></pre></td></tr></table></figure></p>
-<p>如果需要建立多列组合的外键约束，则必须使用表级约束语法，如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#为了保证从表参照的主表存在，通常应该先建主表</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> teacher_table3</span><br><span class="line">(</span><br><span class="line">    teacher_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) ,</span><br><span class="line">    teacher_pass <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) ,</span><br><span class="line">    <span class="hljs-comment">#以两列建立组合主键</span></span><br><span class="line">    primary <span class="hljs-keyword">key</span>(teacher_name，teacher_pass)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> student_table3</span><br><span class="line"><span class="hljs-comment">#为本表建立主键约束</span></span><br><span class="line">student_id <span class="hljs-built_in">int</span> auto_increment primary <span class="hljs-keyword">key</span>,</span><br><span class="line">student_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">java_teacher_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">java_teacher_pass <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line"><span class="hljs-comment">#使用表级约束语法建立外键约束，指定两列的联合外键</span></span><br><span class="line"><span class="hljs-keyword">foreign</span> <span class="hljs-keyword">key</span>(java_teacher_name，java_teacher_pass)</span><br><span class="line"><span class="hljs-keyword">references</span> teacher_table3 (teacher_name，teacher_pass)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>如果需要建立多列组合的外键约束，则必须使用表级约束语法，如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#为了保证从表参照的主表存在，通常应该先建主表</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> teacher_table3</span><br><span class="line">(</span><br><span class="line">teacher_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) ,</span><br><span class="line">teacher_pass <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) ,</span><br><span class="line"><span class="hljs-comment">#以两列建立组合主键</span></span><br><span class="line">primary <span class="hljs-keyword">key</span>(teacher_name，teacher_pass)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> student_table3</span><br><span class="line"><span class="hljs-comment">#为本表建立主键约束</span></span><br><span class="line">student_id <span class="hljs-built_in">int</span> auto_increment primary <span class="hljs-keyword">key</span>,</span><br><span class="line">student_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">java_teacher_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line">java_teacher_pass <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>) ,</span><br><span class="line"><span class="hljs-comment">#使用表级约束语法建立外键约束，指定两列的联合外键</span></span><br><span class="line"><span class="hljs-keyword">foreign</span> <span class="hljs-keyword">key</span>(java_teacher_name，java_teacher_pass)</span><br><span class="line"><span class="hljs-keyword">references</span> teacher_table3 (teacher_name，teacher_pass)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <p>删除外键约束的语法很简单，在alter table后增加“drop foreign key约束名”子句即可。如下代码所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#删除student_table3表上名为student_table3_ibfk_1的外键约束alter table student table3</span></span><br><span class="line"><span class="hljs-keyword">drop</span> <span class="hljs-keyword">foreign</span> <span class="hljs-keyword">key</span> student_table3_ibfk_1;</span><br></pre></td></tr></table></figure></p>
 <p>增加外键约束通常使用add foreign key命令。如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#修改student_table3数据表，增加外键约束</span></span><br><span class="line"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> student_table3</span><br><span class="line"><span class="hljs-keyword">add</span> <span class="hljs-keyword">foreign</span> <span class="hljs-keyword">key</span>(java_teacher_name，java_teacher_pass)</span><br><span class="line"><span class="hljs-keyword">references</span> teacher_table3 (teacher_name，teacher_pass);</span><br></pre></td></tr></table></figure></p>
 <p>值得指出的是，外键约束不仅可以参照其他表，而且可以参照自身，这种参照自身的情况通常被称为<strong>自关联</strong>。例如，使用一个表保存某个公司的所有员工记录，员工之间有部门经理和普通员工之分，部门经理和普通员工之间存在一”对 多的关联关系，但他们都是保存在同一个数据表里的记录，这就是典型的自关联。下面的SQL语句用于建立自关联的外键约束。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#使用表级约束语法建立外约束键，且直接参照自身</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> foreign_test</span><br><span class="line">foreign_id <span class="hljs-built_in">int</span> <span class="hljs-keyword">auto</span> <span class="hljs-keyword">increment</span> primary <span class="hljs-keyword">key</span>,</span><br><span class="line">foreign_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)，</span><br><span class="line"><span class="hljs-comment">#使用该表的refer_id参照到本表的foreign id列</span></span><br><span class="line">refer_id <span class="hljs-built_in">int</span>,</span><br><span class="line"><span class="hljs-keyword">foreign</span> <span class="hljs-keyword">key</span>(refer_id) <span class="hljs-keyword">references</span> foreign_test(foreign_id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>如果想定义当删除主表记录时，从表记录也会随之删除，则需要在建立外键约束后添加on delete cascade或添加on delete set null,第-种是删除主表记录时，把参照该主表记录的从表记录全部级联删除;第二种是指定当删除主表记录时，把参照该主表记录的从表记录的外键设为null。如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#为了保证从表参照的主表存在，通常应该先建主表</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> teacher_table4</span><br><span class="line">(</span><br><span class="line">    <span class="hljs-comment"># auto_increment:代表数据库的自动编号策略，通常用作数据表的逻辑主键</span></span><br><span class="line">    teacher_id <span class="hljs-built_in">int</span> auto_increment,</span><br><span class="line">    teacher_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>)，</span><br><span class="line">    primary <span class="hljs-keyword">key</span>(teacher_id)</span><br><span class="line">    );</span><br><span class="line">    <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> student_table4</span><br><span class="line">    <span class="hljs-comment">#为本表建立主键约束</span></span><br><span class="line">    student_id <span class="hljs-built_in">int</span> auto_increment primary <span class="hljs-keyword">key</span>,</span><br><span class="line">    student_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)，</span><br><span class="line">    java_teacher <span class="hljs-built_in">int</span>,</span><br><span class="line">    <span class="hljs-comment">#使用表级约束语法建立外键约束，定义级联删除</span></span><br><span class="line">    <span class="hljs-keyword">foreign</span> <span class="hljs-keyword">key</span>(java_teacher) <span class="hljs-keyword">references</span> teacher_table4     (teacher <span class="hljs-keyword">id</span>) <span class="hljs-keyword">on</span> <span class="hljs-keyword">delete</span> <span class="hljs-keyword">cascade</span></span><br><span class="line">    <span class="hljs-comment">#也可用on delete set null</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<h5 id="CHECK-约束"><a href="#CHECK-约束" class="headerlink" title="CHECK 约束"></a>CHECK 约束</h5><p>当前版本的MySQL支持建表时指定CHECK约束,但这个CHECK约束不会有任何作用。建立CHECK约束的语法很简单，只要在建表的列定义后增加check(逻辑表达式)即可。如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> check_test</span><br><span class="line">   emp_id <span class="hljs-built_in">int</span> auto_increment,</span><br><span class="line">   emp_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">   emp_salary <span class="hljs-built_in">decimal</span>,</span><br><span class="line">   primary <span class="hljs-keyword">key</span>(emp_id) ，</span><br><span class="line">   <span class="hljs-comment">#普建立CHECK约束</span></span><br><span class="line">   <span class="hljs-keyword">check</span> (emp_salary&gt;<span class="hljs-number">0</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>如果想定义当删除主表记录时，从表记录也会随之删除，则需要在建立外键约束后添加on delete cascade或添加on delete set null,第-种是删除主表记录时，把参照该主表记录的从表记录全部级联删除;第二种是指定当删除主表记录时，把参照该主表记录的从表记录的外键设为null。如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#为了保证从表参照的主表存在，通常应该先建主表</span></span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> teacher_table4</span><br><span class="line">(</span><br><span class="line"><span class="hljs-comment"># auto_increment:代表数据库的自动编号策略，通常用作数据表的逻辑主键</span></span><br><span class="line">teacher_id <span class="hljs-built_in">int</span> auto_increment,</span><br><span class="line">teacher_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>)，</span><br><span class="line">primary <span class="hljs-keyword">key</span>(teacher_id)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> student_table4</span><br><span class="line"><span class="hljs-comment">#为本表建立主键约束</span></span><br><span class="line">student_id <span class="hljs-built_in">int</span> auto_increment primary <span class="hljs-keyword">key</span>,</span><br><span class="line">student_name <span class="hljs-built_in">varchar</span> (<span class="hljs-number">255</span>)，</span><br><span class="line">java_teacher <span class="hljs-built_in">int</span>,</span><br><span class="line"><span class="hljs-comment">#使用表级约束语法建立外键约束，定义级联删除</span></span><br><span class="line"><span class="hljs-keyword">foreign</span> <span class="hljs-keyword">key</span>(java_teacher) <span class="hljs-keyword">references</span> teacher_table4     (teacher <span class="hljs-keyword">id</span>) <span class="hljs-keyword">on</span> <span class="hljs-keyword">delete</span> <span class="hljs-keyword">cascade</span></span><br><span class="line"><span class="hljs-comment">#也可用on delete set null</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h5 id="CHECK-约束"><a href="#CHECK-约束" class="headerlink" title="CHECK 约束"></a>CHECK 约束</h5><p>当前版本的MySQL支持建表时指定CHECK约束,但这个CHECK约束不会有任何作用。建立CHECK约束的语法很简单，只要在建表的列定义后增加check(逻辑表达式)即可。如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> check_test</span><br><span class="line">emp_id <span class="hljs-built_in">int</span> auto_increment,</span><br><span class="line">emp_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">emp_salary <span class="hljs-built_in">decimal</span>,</span><br><span class="line">primary <span class="hljs-keyword">key</span>(emp_id) ，</span><br><span class="line"><span class="hljs-comment">#普建立CHECK约束</span></span><br><span class="line"><span class="hljs-keyword">check</span> (emp_salary&gt;<span class="hljs-number">0</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <p>虽然上面的SQL语句建立的check_test表中有CHECK约束, CHECK约束要求emp_salary大于0,但这个要求实际上并不会起作用。</p>
 <h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><p>索引是存放在模式(schema)中的一个数据库对象，虽然索引总是从属于数据表，但它也和数据表一样属于数据库对象。创建索引的唯一作用就是加速对表的查询,索引通过使用快速路径访问方法来快速定位数据，从而减少了磁盘的I/O。索引作为数据库对象，在数据字典中独立存放，但不能独立存在，必须属于某个表。MySQL使用information_schema数据库里的STATISTICS表来保存该数据库实例中的所有索引信息，用户可通过查询该表来获取该数据库的索引信息。</p>
 <p>创建索引有两种方式。</p>
@@ -484,6 +488,144 @@
 <p>大部分数据库都采用with check option来强制不允许修改视图的数据，但Oracle采用with read only来强制不允许修改视图的数据.</p>
 <p>删除视图使用如下语句:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">drop</span> <span class="hljs-keyword">view</span> 视图名</span><br></pre></td></tr></table></figure></p>
 <p>如下SQL语句删除了前面刚刚创建的视图:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">drop</span> <span class="hljs-keyword">view</span> view_test;</span><br></pre></td></tr></table></figure></p>
+<h4 id="DML语句语法"><a href="#DML语句语法" class="headerlink" title="DML语句语法"></a>DML语句语法</h4><p>DML语法主要完成以下三个操作</p>
+<ul>
+<li>插入新数据。</li>
+<li>修改已有数据。</li>
+<li>删除不需要的数据。<br>DML语句由insert into、update 和delete from三个命令组成。</li>
+</ul>
+<h5 id="insert-into语句"><a href="#insert-into语句" class="headerlink" title="insert into语句"></a>insert into语句</h5><p>insert into用于向指定数据表中插入记录。对于标准的SQL语句而言,每次只能插入一条记录。insert into语句的语法格式如下:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> table_name [(<span class="hljs-keyword">column</span> [, column...])]</span><br><span class="line"><span class="hljs-keyword">values</span> (<span class="hljs-keyword">value</span> [，value. .<span class="hljs-number">.1</span>) ;</span><br></pre></td></tr></table></figure></p>
+<p>执行插入操作时，表名后可以用括号列出所有需要插入值的列名，而values后用括号列出对应需要插入的值。</p>
+<p>如果省略了表名后面的括号及括号里的列名列表，默认将为所有列都插入值,则需要为每一列都指定一个值。如果既不想在表名后列出列名，又不想为所有列都指定值,则可以为那些无法确定值的列分配null。下面的SQL语句示范了如何向数据表中插入记录。</p>
+<p>在表名后使用括号列出所有需要插入值的列:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> teacher_table2 (teacher_name)</span><br><span class="line"><span class="hljs-keyword">values</span>(<span class="hljs-string">'xyz'</span>) ;</span><br></pre></td></tr></table></figure></p>
+<p>如果不想在表后用括号列出所有列，则需要为所有列指定值;如果某列的值不能确定，则为该列分配一个null值。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> teacher table2</span><br><span class="line"><span class="hljs-comment">#使用null代替主键列的值</span></span><br><span class="line"><span class="hljs-keyword">values</span> (nul1，<span class="hljs-string">'abc'</span>) ;</span><br></pre></td></tr></table></figure></p>
+<p>上面两条插入语句后系统表中将会有两条数据</p>
+<table>
+<thead>
+<tr>
+<th>teacher_id</th>
+<th>teacher_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>xyz</td>
+</tr>
+<tr>
+<td>2</td>
+<td>abc</td>
+</tr>
+</tbody>
+</table>
+<p>根据前面介绍的外键约束规则:外键列里的值必须是被参照列里已有的值，所以向从表中插入记录之前，通常应该先向主表中插入记录，否则从表记录的外键列只能为null.现在主表teacher_table2中已有了2条记录，现在可以向从表student_table2中插入记录了.<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> student table2</span><br><span class="line"><span class="hljs-comment">#当向外键列里插值时，外键列的值必须是被参照列里己有的值</span></span><br><span class="line"><span class="hljs-keyword">values</span> (nul1，<span class="hljs-string">'张三，2);</span></span><br></pre></td></tr></table></figure></p>
+<p>外键约束保证被参照的记录必须存在，但并不保证必须有被参照记录，即外键列可以为null. 如果想保证每条从表记录必须存在对应的主表记录，则应使用非空、外键两个约束。</p>
+<p>在一些特别的情况下，可以使用带子查询的插入语句,带子查询的插入语句可以一次插入多条记录:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> student_table2(student_name)</span><br><span class="line"><span class="hljs-comment">#使用子查询的值来插入</span></span><br><span class="line"><span class="hljs-keyword">select</span> teacher_name <span class="hljs-keyword">from</span> teacher_table2;</span><br></pre></td></tr></table></figure></p>
+<p>正如上面的SQL语句所示，带子查询的插入语句甚至不要求查询数据的源表和插入数据的目的表是同一个表，它只要求选择出来的数据列和插入目的表的数据列个数相等、数据类型匹配即可。</p>
+<p>MySQL甚至提供了一种扩展的语法，通过这种扩展的语法也可以一次插入多条记录。MySQL允许在values后使用多个括号包含多条记录，表示多条记录的多个括号之间以英文逗号(,) 隔开。如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> teacher_table2</span><br><span class="line">普同时插入多个值</span><br><span class="line"><span class="hljs-keyword">values</span>(<span class="hljs-literal">null</span>，<span class="hljs-string">"Yeeku"</span>),</span><br><span class="line">(<span class="hljs-literal">null</span>,<span class="hljs-string">"Sharfly"</span>);</span><br></pre></td></tr></table></figure></p>
+<h5 id="update语句"><a href="#update语句" class="headerlink" title="update语句"></a>update语句</h5><p>update语句用于修改数据表的记录，每次可以修改多条记录，通过使用where子句限定修改哪些记录。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">update</span> table_name</span><br><span class="line"><span class="hljs-keyword">set</span> columnl= valuel[, column2 = value2] ...</span><br><span class="line">[<span class="hljs-keyword">WHERE</span> condition];</span><br></pre></td></tr></table></figure></p>
+<p>使用update语句不仅可以一次修改多条记录，也可以一次修改多列。修改多列都是通过在set关键字后使用column1=valuel,column2=valae2.来实现的，修改多列的值之间以英文逗号(,) 隔开。<br>下面的SQL语句将会把teacher_table2表中所有记录的teacher_name列的值都改为’孙悟空’。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">update</span> teacher_table2</span><br><span class="line"><span class="hljs-keyword">set</span> teacher_name = <span class="hljs-string">'孙悟空'</span> ;</span><br></pre></td></tr></table></figure></p>
+<p>也可以通过添加where条件来指定只修改特定记录，如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#只修改teacher_id大于1的记录</span></span><br><span class="line"><span class="hljs-keyword">update</span> teacher_table2</span><br><span class="line"><span class="hljs-keyword">set</span> teacher_name = <span class="hljs-string">'猪八戒'</span></span><br><span class="line"><span class="hljs-keyword">where</span> teacher_id &gt; <span class="hljs-number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<h5 id="delete-from-语句"><a href="#delete-from-语句" class="headerlink" title="delete from 语句"></a>delete from 语句</h5><p>delete from语句用于刪除指定数据表的记录。使用delete from语句删除时不需要指定列名，因为总是整行地删除。</p>
+<p>使用delete from语句可以一次删除多行,删除哪些行采用where子句限定,只删除满足where 条件的记录。没有where子句限定将会把表里的全部记录删除。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> table_name</span><br><span class="line">[<span class="hljs-keyword">WHERE</span> condition] ;</span><br></pre></td></tr></table></figure></p>
+<p>如下SQL语句将会把student_table2 表中的记录全部删除:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> student_table2;</span><br></pre></td></tr></table></figure></p>
+<p>也可以使用where条件来限定只删除指定记录，如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> teacher_table2</span><br><span class="line"><span class="hljs-keyword">where</span> teacher_id &gt; <span class="hljs-number">2</span>;</span><br></pre></td></tr></table></figure></p>
+<p>当主表记录被从表记录参照时，主表记录不能被删除，只有先将从表中参照主表记录的所有记录全部删除后，才可删除主表记录。还有一种情况，定义外键约束时定义了主表记录和从表记录之间的级联删除on delete cascade, 或者使用on delete set null用于指定当主表记录被删除时，从表中参照该记录的从表记录把外键列的值设为null.</p>
+<h4 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h4><p>单表查询的select语句的语法格式如下:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> column1, <span class="hljs-keyword">col</span> umn2</span><br><span class="line"><span class="hljs-keyword">from</span> 数据源</span><br><span class="line">[<span class="hljs-keyword">where</span> condition]</span><br></pre></td></tr></table></figure></p>
+<p>上面语法格式中的数据源可以是表、视图等。select后的列表用于确定选择哪些列，where 条件用于确定选择哪些行，只有满足where条件的记录才会被选择出来;如果没有where条件,则默认选出所有行。如果想选择出所有列，则可使用星号(*)代表所有列。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> *</span><br><span class="line"><span class="hljs-keyword">from</span> teacher_table;</span><br></pre></td></tr></table></figure></p>
+<p>如果增加where条件，则只选择出符合where条件的记录。如下SQL语句将选择出student_table表中java_teacher大于3的记录的student_name列的值。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> student_name</span><br><span class="line"><span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-keyword">where</span> java_teacher &gt; <span class="hljs-number">3</span>;</span><br></pre></td></tr></table></figure></p>
+<p>当使用select语句进行查询时，还可以在select语句中使用算术运算符(+、-、*、/),从而形成算术表达式。使用算术表达式的规则如下。</p>
+<ul>
+<li>对数值型数据列、变量、常量可以使用算术运算符(+、-、*、/)创建表达式;</li>
+<li>对日期型数据列、变量、常量可以使用部分算术运算符(+、-)创建表达式，两个日期之间可以进行减法运算，日期和数值之间可以进行加、减运算;</li>
+<li>运算符不仅可以在列和常量、变量之间进行运算，也可以在两列之间进行运算。</li>
+</ul>
+<p>不论从哪个角度来看,数据列都很像一个变量，只是这个变量的值具有指定的范围一逐行计算表中的每条记录时，数据列的值依次变化。因此能使用变量的地方，基本上都可以使用数据列。</p>
+<p>下面的select语句中使用了算术运算符。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#数据列实际上可当成一个变量</span></span><br><span class="line"><span class="hljs-keyword">select</span> teacher_id + <span class="hljs-number">5</span></span><br><span class="line"><span class="hljs-keyword">from</span> teacher_table;</span><br><span class="line"><span class="hljs-comment">#查询出teacher_table表中teacher_id * 3大于4的记录</span></span><br><span class="line"><span class="hljs-keyword">select</span> *</span><br><span class="line"><span class="hljs-keyword">from</span> teacher_table</span><br><span class="line"><span class="hljs-keyword">where</span> teacher <span class="hljs-keyword">id</span> * <span class="hljs-number">3</span> &gt; <span class="hljs-number">4</span>;</span><br></pre></td></tr></table></figure></p>
+<p>需要指出的是，select后的不仅可以是数据列，也可以是表达式，还可以是变量、常量等。例如，如下语句也是正确的。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#数据列实际上可当成一个变量</span></span><br><span class="line"><span class="hljs-keyword">select</span> <span class="hljs-number">3</span>*<span class="hljs-number">5</span>, <span class="hljs-number">20</span></span><br><span class="line"><span class="hljs-keyword">from</span> teacher_ <span class="hljs-keyword">table</span>;</span><br></pre></td></tr></table></figure></p>
+<p>MySQL中没有提供字符串连接运算符，即无法使用加号(+)将字符串常量、字符串变量或字符串列连接起来。MySQL使用concat函数来进行字符串连接运算。<br>如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#选择出teacher_name和'xx'字符串连接后的结果</span></span><br><span class="line"><span class="hljs-keyword">select</span> <span class="hljs-keyword">concat</span>(teacher_name ,<span class="hljs-string">'xx'</span>)</span><br><span class="line"><span class="hljs-keyword">from</span> teacher <span class="hljs-keyword">table</span>;</span><br></pre></td></tr></table></figure></p>
+<p>对于MySQL而言，如果在算术表达式中使用null,将会导致整个算术表达式的返回值为null;如果在字符串连接运算中出现null,将会导致连接后的结果也是null。如下SQL语句将会返回null.<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> <span class="hljs-keyword">concat</span>(teacher_name，<span class="hljs-literal">null</span>)</span><br><span class="line"><span class="hljs-keyword">from</span> teacher_table;</span><br></pre></td></tr></table></figure></p>
+<p>对某些数据库而言，如果让字符串和null进行连接运算，它会把null当成空字符串处理。如果不希望直接使用列名作为列标题，则可以为数据列或表达式起一个别名，为数据列或表达式起别名时，别名紧跟数据列，中间以空格隔开，或者使用as关键字隔开。如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> teacher <span class="hljs-keyword">id</span> + <span class="hljs-number">5</span> <span class="hljs-keyword">as</span> MY_ID <span class="hljs-keyword">from</span> teacher <span class="hljs-keyword">table</span>;</span><br></pre></td></tr></table></figure></p>
+<p>为列起别名，可以改变列的标题头，用于表示计算结果的具体含义。如果列别名中使用特殊字符(例如空格)，或者需要强制大小写敏感，都可以通过为别名添加双引号来实现。如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#可以为选出的列起别名，别名中包括单引号字符，所以把别名用双引号引起来</span></span><br><span class="line"><span class="hljs-keyword">select</span> teacher <span class="hljs-keyword">id</span> + <span class="hljs-number">5</span> <span class="hljs-string">"MY'id"</span></span><br><span class="line"><span class="hljs-keyword">from</span> teacher <span class="hljs-keyword">table</span> ;</span><br></pre></td></tr></table></figure></p>
+<p>如果需要选择多列，并为多列起别名，则列与列之间以逗号隔开，但列和列别名之间以空格隔开。如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> teacher_id + <span class="hljs-number">5</span> MY_ID，teacher_name 老师名</span><br><span class="line"><span class="hljs-keyword">from</span> teacher_table;</span><br></pre></td></tr></table></figure></p>
+<p>不仅可以为列或表达式起别名，也可以为表起别名，为表起别名的语法和为列或表达式起别名的语法完全一样，如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> teacher_id + <span class="hljs-number">5</span> MY_ID，teacher_name 老师名</span><br><span class="line"><span class="hljs-comment">#为teacher table起别名t</span></span><br><span class="line"><span class="hljs-keyword">from</span> teacher_table t</span><br></pre></td></tr></table></figure></p>
+<p>前面已经提到，列名可以当成变量处理，所以运算符也可以在多列之间进行运算，如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> teacher <span class="hljs-keyword">id</span> + <span class="hljs-number">5</span> MY_ID，<span class="hljs-keyword">concat</span>(teacher_name，teacher_id) teacher_name</span><br><span class="line"><span class="hljs-keyword">from</span> teacher_table</span><br><span class="line"><span class="hljs-keyword">where</span> teacher <span class="hljs-keyword">id</span>*<span class="hljs-number">2</span> &gt; <span class="hljs-number">3</span>;</span><br></pre></td></tr></table></figure></p>
+<p>甚至可以在select、where子句中都不出现列名，如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> <span class="hljs-number">5</span> + <span class="hljs-number">4</span></span><br><span class="line"><span class="hljs-keyword">from</span> teacher_table</span><br><span class="line"><span class="hljs-keyword">where</span> <span class="hljs-number">2</span> &lt; <span class="hljs-number">9</span>;</span><br></pre></td></tr></table></figure></p>
+<p>这种情况比较特殊: where语句后的条件表达式总是true,所以会把teacher_table表中的每条记录都选择出来一但SQL语句没有选择任何列，仅仅选择了一个常量，所以SQL会把该常量当成一列，teacher_table表中有多少条记录，该常量就出现多少次。<br>对于选择常量的情形，指定数据表可能没有太大的意义，所以MySQL提供了一种扩展语法，允许select语句后没有from子句，即可写成如下形式:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> <span class="hljs-number">5</span>+ <span class="hljs-number">4</span>;</span><br></pre></td></tr></table></figure></p>
+<p>上面这种语句并不是标准SQL语句。例如, Oracle就提供了一个名为dual的虚表(最新的MySQL数据库也支持dual虚表)，它没有任何意义，仅仅相当于from后的占位符。如果选择常量，则可使用如下语句:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> <span class="hljs-number">5</span>+<span class="hljs-number">4</span> <span class="hljs-keyword">from</span> dual;</span><br></pre></td></tr></table></figure></p>
+<p>select默认会把所有符合条件的记录全部选出来，即使两行记录完全一样。如果想去除重复行，则可以使用distinct关键字从查询结果中清除重复行。比较下面两条SQL语句的执行结果：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#选出所有记录，包括重复行</span></span><br><span class="line"><span class="hljs-keyword">select</span> student_name, java_teacher</span><br><span class="line"><span class="hljs-keyword">from</span> student_table;</span><br><span class="line"><span class="hljs-comment">#去除重复行</span></span><br><span class="line"><span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> student_name, java_teacher</span><br><span class="line"><span class="hljs-keyword">from</span> student_table;</span><br></pre></td></tr></table></figure></p>
+<p>使用distinct 去除重复行时，distinct 紧跟select关键字。它的作用是去除后面字段组合的重复值，而不管对应记录在数据库里是否重复。例如，(1,’a’,’b’)和(2,’a’,’b’)两条记录在数据库里是不重复的，但如果仅选择后面两列，则distinct会认为两条记录重复。</p>
+<p>SQL中判断两个值是否相等的比较运算符是单等号,判断不相等的运算符是&lt;&gt;; SQL中的赋值运算符不是等号，而是冒号等号(:=).</p>
+<p>SQL还支持特殊的比较运算符</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>exprl between expr2 and expr3</td>
+<td>要求expr1&gt;= expr2并且expr2&lt; expr3</td>
+</tr>
+<tr>
+<td>exprl in(expr2 , expr3 , expr4,…)</td>
+<td>要求exprl等于后面括号里任意-一个表达式的值</td>
+</tr>
+<tr>
+<td>like</td>
+<td>字符串匹配，like 后的字符串支持通配符</td>
+</tr>
+<tr>
+<td>is null</td>
+<td>要求指定值等于null</td>
+</tr>
+</tbody>
+</table>
+<p>下面的SQL语句选出student_id大于等于2，且小于等于4的所有记录。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-keyword">where</span> student_id <span class="hljs-keyword">between</span> <span class="hljs-number">2</span> <span class="hljs-keyword">and</span> <span class="hljs-number">4</span>;</span><br></pre></td></tr></table></figure></p>
+<p>使用between val1 and val2必须保证vall小于val2,否则将选不出任何记录。除此之外, between valland val2中的两个值不仅可以是常量,也可以是变量,或者是列名也行。如下SQL语句选出java_teacher小于等于2，student_id大于等于2的所有记录。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-keyword">where</span> <span class="hljs-number">2</span> <span class="hljs-keyword">between</span> java_teacher <span class="hljs-keyword">and</span> student_id;</span><br></pre></td></tr></table></figure></p>
+<p>使用in比较运算符时,必须在in后的括号里列出一个或多个值，它要求指定列必须与in括号里任意一个值相等。如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#选出student id为2或4的所有记录</span></span><br><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-keyword">where</span> student_id <span class="hljs-keyword">in</span>(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>);</span><br></pre></td></tr></table></figure></p>
+<p>与之类似的是，in括号里的值既可以是常量，也可以是变量或者列名，如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#选出student_id、java_teacher列的值为2的所有记录</span></span><br><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-keyword">where</span> <span class="hljs-number">2</span> <span class="hljs-keyword">in</span>(student_id, java_teacher) ;</span><br></pre></td></tr></table></figure></p>
+<p>like运算符主要用于进行模糊查询，例如，若要查询名字以“孙”开头的所有记录，这就需要用到模糊查询，在模糊查询中需要使用like关键字。SQL语句中可以使用两个通配符:下画线(_)和百分号(%),其中下画线可以代表一个任意的字符，百分号可以代表任意多个字符。如下SQL语句将查询出所有学生中名字以“孙”开头的学生。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-keyword">where</span> student_name <span class="hljs-keyword">like</span> <span class="hljs-string">'孙%;</span></span><br></pre></td></tr></table></figure></p>
+<p>下面的SQL语句将查询出名字为两个字符的所有学生。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-comment">#下面使用两个下画线代表两个字符</span></span><br><span class="line"><span class="hljs-keyword">where</span> student_name <span class="hljs-keyword">like</span><span class="hljs-string">'__'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>在某些特殊的情况下，查询的条件里需要使用下画线或百分号，不希望SQL把下画线和百分号当成通配符使用，这就需要使用转义字符，MySQL使用反斜线() 作为转义字符，如下SQL语句所示:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#选出所有名字以下画线开头的学生</span></span><br><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-keyword">where</span> student_name <span class="hljs-keyword">like</span> <span class="hljs-string">'\_%'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>标准SQL语句并没有提供反斜线() 的转义字符，而是使用escape关键字显式进行转义。例如，为了实现上面功能需要使用如下SQL语句:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#在标准的SQL中选出所有名字以下画线开头的学生</span></span><br><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-keyword">where</span> student_name <span class="hljs-keyword">like</span> <span class="hljs-string">'\_% escape '</span>\<span class="hljs-string">';</span></span><br></pre></td></tr></table></figure></p>
+<p>is null用于判断某些值是否为空,判断是否为空不要用=null来判断,因为SQL null=null返回null。如下SQL语句将选择出student_table表中student_name为null的所有记录。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-keyword">where</span> student_name <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span>;</span><br></pre></td></tr></table></figure></p>
+<p>如果where子句后有多个条件需要组合，SQL提供了and和or逻辑运算符来组合两个条件，并提供了not来对逻辑表达式求否。如下SQL语句将选出学生名字为2个字符，且student id大于3的所有记录。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-comment">#使用and来组合多个条件</span></span><br><span class="line"><span class="hljs-keyword">where</span> student <span class="hljs-keyword">name</span> <span class="hljs-keyword">like</span> <span class="hljs-string">'__'</span> <span class="hljs-keyword">and</span> student_id &gt; <span class="hljs-number">3</span>;</span><br></pre></td></tr></table></figure></p>
+<p>下面的SQL语句将选出student_table表中姓名不以下画线开头的所有记录。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-comment">#使用not对where条件取否</span></span><br><span class="line"><span class="hljs-keyword">where</span> <span class="hljs-keyword">not</span> student_name <span class="hljs-keyword">like</span> <span class="hljs-string">'\_%'</span> ;</span><br></pre></td></tr></table></figure></p>
+<p>当使用比较运算符、逻辑运算符来连接表达式时，必须注意这些运算符的优先级。SQL中比较运算符、逻辑运算符的优先级如表所示。</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>优先级（优先级小的优先）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>所有的比较运算符</td>
+<td>1</td>
+</tr>
+<tr>
+<td>not</td>
+<td>2</td>
+</tr>
+<tr>
+<td>and</td>
+<td>3</td>
+</tr>
+<tr>
+<td>or</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>如果SQL代码需要改变优先级的默认顺序,则可以使用括号,括号的优先级比所有的运算符高<br>如下SQL语句使用括号来改变逻辑运算符的优先级<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line">使用括号强制先计算<span class="hljs-keyword">or</span>运算</span><br><span class="line"><span class="hljs-keyword">where</span> (student_id &gt;<span class="hljs-number">3</span> <span class="hljs-keyword">or</span> student_name &gt;<span class="hljs-string">'张'</span></span><br><span class="line"><span class="hljs-keyword">and</span> java_teacher &gt;<span class="hljs-number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<p>执行査询后的查询结果默认按插入顺序排列;如果需要查询结果按某列值的大小进行排序,则可以使用order by子句。order by子句的语法格式如下:<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">order by column_namel [desc], column name2.....</span><br></pre></td></tr></table></figure></p>
+<p>进行排序时默认按升序排列,如果强制按降序排列,则需要在列后使用desc关键字(与之对应的是asc关键字,用不用该关键字的效果完全一样,因为默认是按升序排列)。</p>
+<p>上面语法中设定排序列时可采用列名、列序号和列别名。如下SQL语句选出 student table表中的所有记录,选出后按 java_teacher列的升序排列。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> java_teacher;</span><br></pre></td></tr></table></figure></p>
+<p>如果需要按多列排序,则每列的asc、desc必须单独设定。如果指定了多个排序列,则第一个排序列是首要排序列,只有当第一列中存在多个相同的值时,第二个排序列才会起作用。如下SQL语句先<br>按 java_teacher列的降序排列,当java_teacher列的值相同时按student_name列的升序排列。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span> <span class="hljs-keyword">from</span> student_table</span><br><span class="line"><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> java_teacher <span class="hljs-keyword">desc</span>, student_name;</span><br></pre></td></tr></table></figure></p>
 
         </div>
         
@@ -509,12 +651,6 @@
         <div class="buttons is-centered">
             
                 
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
 <a class="button is-success donate">
     <span class="icon is-small">
         <i class="fab fa-weixin"></i>
@@ -522,19 +658,6 @@
     <span>Wechat</span>
     <div class="qrcode"><img src="http://plmk8ppkc.bkt.clouddn.com/IMG_2165.jpg" alt="Wechat"></div>
 </a>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
 
                 
         </div>
@@ -564,7 +687,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -668,8 +791,6 @@
 </div>
     
         
-    
-        
 
 <div class="card widget">
     <div class="card-content">
@@ -693,7 +814,7 @@
             <li>
                 <a class="level is-mobile" href="https://github.com/iceco1a" target="_blank">
                     <span class="level-left">
-                        <span class="level-item">PPOffice</span>
+                        <span class="level-item">iceco1a</span>
                     </span>
                     <span class="level-right">
                         <span class="level-item tag">github.com</span>
@@ -729,6 +850,340 @@
             Tag Cloud
         </h3>
         <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a>
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Database/">
+                        <span class="tag">Database</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Java/">
+                        <span class="tag">Java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+            
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#关系型数据库基本概念">
+        <span class="has-mr-6">1</span>
+        <span>关系型数据库基本概念</span>
+        </a></li><li>
+        <a class="is-flex" href="#MySQL基本命令">
+        <span class="has-mr-6">2</span>
+        <span>MySQL基本命令</span>
+        </a></li><li>
+        <a class="is-flex" href="#SQL语句基础">
+        <span class="has-mr-6">3</span>
+        <span>SQL语句基础</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#DDL语句">
+        <span class="has-mr-6">3.1</span>
+        <span>DDL语句</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#创建表的语法">
+        <span class="has-mr-6">3.1.1</span>
+        <span>创建表的语法</span>
+        </a></li><li>
+        <a class="is-flex" href="#修改变结构语法">
+        <span class="has-mr-6">3.1.2</span>
+        <span>修改变结构语法</span>
+        </a></li><li>
+        <a class="is-flex" href="#删除表的语法">
+        <span class="has-mr-6">3.1.3</span>
+        <span>删除表的语法</span>
+        </a></li><li>
+        <a class="is-flex" href="#truncate-表">
+        <span class="has-mr-6">3.1.4</span>
+        <span>truncate 表</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#数据库约束">
+        <span class="has-mr-6">3.2</span>
+        <span>数据库约束</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#NOT-NULL约束">
+        <span class="has-mr-6">3.2.1</span>
+        <span>NOT NULL约束</span>
+        </a></li><li>
+        <a class="is-flex" href="#UNIQUE约束">
+        <span class="has-mr-6">3.2.2</span>
+        <span>UNIQUE约束</span>
+        </a></li><li>
+        <a class="is-flex" href="#PRIMARY-KEY约束">
+        <span class="has-mr-6">3.2.3</span>
+        <span>PRIMARY KEY约束</span>
+        </a></li><li>
+        <a class="is-flex" href="#FOREIGN-KEY-约束">
+        <span class="has-mr-6">3.2.4</span>
+        <span>FOREIGN KEY 约束</span>
+        </a></li><li>
+        <a class="is-flex" href="#CHECK-约束">
+        <span class="has-mr-6">3.2.5</span>
+        <span>CHECK 约束</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#索引">
+        <span class="has-mr-6">3.3</span>
+        <span>索引</span>
+        </a></li><li>
+        <a class="is-flex" href="#视图">
+        <span class="has-mr-6">3.4</span>
+        <span>视图</span>
+        </a></li><li>
+        <a class="is-flex" href="#DML语句语法">
+        <span class="has-mr-6">3.5</span>
+        <span>DML语句语法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#insert-into语句">
+        <span class="has-mr-6">3.5.1</span>
+        <span>insert into语句</span>
+        </a></li><li>
+        <a class="is-flex" href="#update语句">
+        <span class="has-mr-6">3.5.2</span>
+        <span>update语句</span>
+        </a></li><li>
+        <a class="is-flex" href="#delete-from-语句">
+        <span class="has-mr-6">3.5.3</span>
+        <span>delete from 语句</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#单表查询">
+        <span class="has-mr-6">3.6</span>
+        <span>单表查询</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/01/24/MySQL基础/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/ssd.png" alt="MySQL基础">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-23T16:00:00.000Z">2019-01-24</time></div>
+                    <a href="/2019/01/24/MySQL基础/" class="has-link-black-ter is-size-6">MySQL基础</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/23/Java IO/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/leimu.png" alt="Java IO流">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-22T16:00:00.000Z">2019-01-23</time></div>
+                    <a href="/2019/01/23/Java IO/" class="has-link-black-ter is-size-6">Java IO流</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/18/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-18T09:00:43.863Z">2019-01-18</time></div>
+                    <a href="/2019/01/18/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#关系型数据库基本概念">
+        <span class="has-mr-6">1</span>
+        <span>关系型数据库基本概念</span>
+        </a></li><li>
+        <a class="is-flex" href="#MySQL基本命令">
+        <span class="has-mr-6">2</span>
+        <span>MySQL基本命令</span>
+        </a></li><li>
+        <a class="is-flex" href="#SQL语句基础">
+        <span class="has-mr-6">3</span>
+        <span>SQL语句基础</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#DDL语句">
+        <span class="has-mr-6">3.1</span>
+        <span>DDL语句</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#创建表的语法">
+        <span class="has-mr-6">3.1.1</span>
+        <span>创建表的语法</span>
+        </a></li><li>
+        <a class="is-flex" href="#修改变结构语法">
+        <span class="has-mr-6">3.1.2</span>
+        <span>修改变结构语法</span>
+        </a></li><li>
+        <a class="is-flex" href="#删除表的语法">
+        <span class="has-mr-6">3.1.3</span>
+        <span>删除表的语法</span>
+        </a></li><li>
+        <a class="is-flex" href="#truncate-表">
+        <span class="has-mr-6">3.1.4</span>
+        <span>truncate 表</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#数据库约束">
+        <span class="has-mr-6">3.2</span>
+        <span>数据库约束</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#NOT-NULL约束">
+        <span class="has-mr-6">3.2.1</span>
+        <span>NOT NULL约束</span>
+        </a></li><li>
+        <a class="is-flex" href="#UNIQUE约束">
+        <span class="has-mr-6">3.2.2</span>
+        <span>UNIQUE约束</span>
+        </a></li><li>
+        <a class="is-flex" href="#PRIMARY-KEY约束">
+        <span class="has-mr-6">3.2.3</span>
+        <span>PRIMARY KEY约束</span>
+        </a></li><li>
+        <a class="is-flex" href="#FOREIGN-KEY-约束">
+        <span class="has-mr-6">3.2.4</span>
+        <span>FOREIGN KEY 约束</span>
+        </a></li><li>
+        <a class="is-flex" href="#CHECK-约束">
+        <span class="has-mr-6">3.2.5</span>
+        <span>CHECK 约束</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#索引">
+        <span class="has-mr-6">3.3</span>
+        <span>索引</span>
+        </a></li><li>
+        <a class="is-flex" href="#视图">
+        <span class="has-mr-6">3.4</span>
+        <span>视图</span>
+        </a></li><li>
+        <a class="is-flex" href="#DML语句语法">
+        <span class="has-mr-6">3.5</span>
+        <span>DML语句语法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#insert-into语句">
+        <span class="has-mr-6">3.5.1</span>
+        <span>insert into语句</span>
+        </a></li><li>
+        <a class="is-flex" href="#update语句">
+        <span class="has-mr-6">3.5.2</span>
+        <span>update语句</span>
+        </a></li><li>
+        <a class="is-flex" href="#delete-from-语句">
+        <span class="has-mr-6">3.5.3</span>
+        <span>delete from 语句</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#单表查询">
+        <span class="has-mr-6">3.6</span>
+        <span>单表查询</span>
+        </a></li></ul></li></ul>
+        </div>
     </div>
 </div>
 
@@ -801,72 +1256,9 @@
 </div>
 
     
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Archives
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/01/">
-                <span class="level-start">
-                    <span class="level-item">January 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Tags
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Database/">
-                        <span class="tag">Database</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Java/">
-                        <span class="tag">Java</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/MySQL/">
-                        <span class="tag">MySQL</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-    
-    
-        <div class="column-right-shadow is-hidden-widescreen ">
-        
-        </div>
     
 </div>
 
-                
             </div>
         </div>
     </section>
