@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="iceco1a">
 <meta property="og:description" content="简介  Java的IO通过java.io包下的类和接口来支持，在java.io包下主要包括输入、输出流又可分为字节流和字符流两大类。其中字节流以字节为单位来处理输入和输出操作，而字符流以字符来处理输入和输出操作。此外Java的IO流使用了装饰器设计模式，它将IO流分为底层节点流和上层处理流，其中节点流和底层的物理存储节点直接关联——不同的物理节点获取节点流的方式存在差异，但程序可以把不同的物理节点">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-24T10:49:44.384Z">
+<meta property="og:updated_time" content="2019-01-26T05:05:35.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java IO流">
 <meta name="twitter:description" content="简介  Java的IO通过java.io包下的类和接口来支持，在java.io包下主要包括输入、输出流又可分为字节流和字符流两大类。其中字节流以字节为单位来处理输入和输出操作，而字符流以字符来处理输入和输出操作。此外Java的IO流使用了装饰器设计模式，它将IO流分为底层节点流和上层处理流，其中节点流和底层的物理存储节点直接关联——不同的物理节点获取节点流的方式存在差异，但程序可以把不同的物理节点">
@@ -120,6 +120,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -151,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    an hour read (About 9956 words)
+                    an hour read (About 9957 words)
                 </span>
                 
             </div>
@@ -164,7 +168,7 @@
         </h1>
         <div class="content">
             <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
-<p> Java的IO通过java.io包下的类和接口来支持，在java.io包下主要包括输入、输出流又可分为字节流和字符流两大类。其中字节流以字节为单位来处理输入和输出操作，而字符流以字符来处理输入和输出操作。此外Java的IO流使用了装饰器设计模式，它将IO流分为底层节点流和上层处理流，其中节点流和底层的物理存储节点直接关联——不同的物理节点获取节点流的方式存在差异，但程序可以把不同的物理节点包装成统一的处理流，从而允许程序使用统一的输入、输出代码来读取不同的物理存储节点的资源.<br>Java7在java.nio及其子包下提供了一系列全新的API，这些API是对原有新IO的升级，因此也被称为NIO2，通过这些NIO2，程序可以更高效地进行输入、输出操作。<br>除此之外，Java还使用了对象的序列化机制，通过序列化机制可以把内存中的Java对象转换成二进制字节流，这样就可以把Java对象存储到磁盘里，或者在网络上传输Java对象。</p>
+<p> Java的IO通过java.io包下的类和接口来支持，在java.io包下主要包括输入、输出流又可分为字节流和字符流两大类。其中字节流以字节为单位来处理输入和输出操作，而字符流以字符来处理输入和输出操作。此外Java的IO流使用了装饰器设计模式，它将IO流分为底层节点流和上层处理流，其中节点流和底层的物理存储节点直接关联——不同的物理节点获取节点流的方式存在差异，但程序可以把不同的物理节点包装成统一的处理流，从而允许程序使用统一的输入、输出代码来读取不同的物理存储节点的资源.<br>Java7在java.nio及其子包下提供了一系列全新的API，这些API是对原有新IO的升级，因此也被称为NIO2，通过这些NIO2，程序可以更高效地进行输入、输出操作。<br>除此之外，Java还使用了对象的序列化机制，通过序列化机制可以把内存中的Java对象转换成二进制字节流，这样就可以把Java对象存储到磁盘里，或者在网络上传输Java对象。<br><a id="more"></a></p>
 </blockquote>
 <h3 id="File类"><a href="#File类" class="headerlink" title="File类"></a>File类</h3><p>File类是java.io包下代表和平台无关的文件和目录，不管是文件还是目录DOI是使用File来操作的，File能创建、删除、重命名文件和目录，File不能访问文件内容本身。如果需要访问文件内容本身，则需要使用输入流、输出流</p>
 <h4 id="访问文件和目录"><a href="#访问文件和目录" class="headerlink" title="访问文件和目录"></a>访问文件和目录</h4><p>File类可以使用文件路径字符串来创建File实例该文件路径既可以是绝对路径，也可以是相对路径。在默认情况下，系统总是根据用户的工作路径来解释相对路径一旦创建了File对象，就可以调用File对象的方法来访问，File类提供了很多方法来操作文件和目录  </p>
@@ -725,6 +729,89 @@
         <div class="column-right-shadow is-hidden-widescreen is-sticky">
         
             
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#简介">
+        <span class="has-mr-6">1</span>
+        <span>简介</span>
+        </a></li><li>
+        <a class="is-flex" href="#File类">
+        <span class="has-mr-6">2</span>
+        <span>File类</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#访问文件和目录">
+        <span class="has-mr-6">2.1</span>
+        <span>访问文件和目录</span>
+        </a></li><li>
+        <a class="is-flex" href="#测试代码">
+        <span class="has-mr-6">2.2</span>
+        <span>测试代码</span>
+        </a></li><li>
+        <a class="is-flex" href="#文件过滤器">
+        <span class="has-mr-6">2.3</span>
+        <span>文件过滤器</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#理解Java的IO流">
+        <span class="has-mr-6">3</span>
+        <span>理解Java的IO流</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#流的分类">
+        <span class="has-mr-6">3.1</span>
+        <span>流的分类</span>
+        </a></li><li>
+        <a class="is-flex" href="#流的模型概念">
+        <span class="has-mr-6">3.2</span>
+        <span>流的模型概念</span>
+        </a></li><li>
+        <a class="is-flex" href="#字节流和字符流">
+        <span class="has-mr-6">3.3</span>
+        <span>字节流和字符流</span>
+        </a></li><li>
+        <a class="is-flex" href="#OutputStream和Witer">
+        <span class="has-mr-6">3.4</span>
+        <span>OutputStream和Witer</span>
+        </a></li><li>
+        <a class="is-flex" href="#输入-输出流体系">
+        <span class="has-mr-6">3.5</span>
+        <span>输入/输出流体系</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#处理流的用法">
+        <span class="has-mr-6">3.5.1</span>
+        <span>处理流的用法</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#输入-输出体系">
+        <span class="has-mr-6">3.6</span>
+        <span>输入/输出体系</span>
+        </a></li><li>
+        <a class="is-flex" href="#转换流">
+        <span class="has-mr-6">3.7</span>
+        <span>转换流</span>
+        </a></li><li>
+        <a class="is-flex" href="#推回输入流">
+        <span class="has-mr-6">3.8</span>
+        <span>推回输入流</span>
+        </a></li><li>
+        <a class="is-flex" href="#重定向标准输入-输出">
+        <span class="has-mr-6">3.9</span>
+        <span>重定向标准输入/输出</span>
+        </a></li><li>
+        <a class="is-flex" href="#Java虚拟机读写其他进程的数据">
+        <span class="has-mr-6">3.10</span>
+        <span>Java虚拟机读写其他进程的数据</span>
+        </a></li><li>
+        <a class="is-flex" href="#RandomAccessFile">
+        <span class="has-mr-6">3.11</span>
+        <span>RandomAccessFile</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
         
             
 <div class="card widget">
@@ -806,6 +893,89 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#简介">
+        <span class="has-mr-6">1</span>
+        <span>简介</span>
+        </a></li><li>
+        <a class="is-flex" href="#File类">
+        <span class="has-mr-6">2</span>
+        <span>File类</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#访问文件和目录">
+        <span class="has-mr-6">2.1</span>
+        <span>访问文件和目录</span>
+        </a></li><li>
+        <a class="is-flex" href="#测试代码">
+        <span class="has-mr-6">2.2</span>
+        <span>测试代码</span>
+        </a></li><li>
+        <a class="is-flex" href="#文件过滤器">
+        <span class="has-mr-6">2.3</span>
+        <span>文件过滤器</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#理解Java的IO流">
+        <span class="has-mr-6">3</span>
+        <span>理解Java的IO流</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#流的分类">
+        <span class="has-mr-6">3.1</span>
+        <span>流的分类</span>
+        </a></li><li>
+        <a class="is-flex" href="#流的模型概念">
+        <span class="has-mr-6">3.2</span>
+        <span>流的模型概念</span>
+        </a></li><li>
+        <a class="is-flex" href="#字节流和字符流">
+        <span class="has-mr-6">3.3</span>
+        <span>字节流和字符流</span>
+        </a></li><li>
+        <a class="is-flex" href="#OutputStream和Witer">
+        <span class="has-mr-6">3.4</span>
+        <span>OutputStream和Witer</span>
+        </a></li><li>
+        <a class="is-flex" href="#输入-输出流体系">
+        <span class="has-mr-6">3.5</span>
+        <span>输入/输出流体系</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#处理流的用法">
+        <span class="has-mr-6">3.5.1</span>
+        <span>处理流的用法</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#输入-输出体系">
+        <span class="has-mr-6">3.6</span>
+        <span>输入/输出体系</span>
+        </a></li><li>
+        <a class="is-flex" href="#转换流">
+        <span class="has-mr-6">3.7</span>
+        <span>转换流</span>
+        </a></li><li>
+        <a class="is-flex" href="#推回输入流">
+        <span class="has-mr-6">3.8</span>
+        <span>推回输入流</span>
+        </a></li><li>
+        <a class="is-flex" href="#重定向标准输入-输出">
+        <span class="has-mr-6">3.9</span>
+        <span>重定向标准输入/输出</span>
+        </a></li><li>
+        <a class="is-flex" href="#Java虚拟机读写其他进程的数据">
+        <span class="has-mr-6">3.10</span>
+        <span>Java虚拟机读写其他进程的数据</span>
+        </a></li><li>
+        <a class="is-flex" href="#RandomAccessFile">
+        <span class="has-mr-6">3.11</span>
+        <span>RandomAccessFile</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 <div class="card widget">
