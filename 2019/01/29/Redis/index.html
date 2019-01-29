@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Redis - iceco1a</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="简介redis是一款高性能的NOSQL系列的非关系型数据库 NOSQLNoSQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指非关系型的数据库。随着互联网web2.0网站的兴起，传统的关系数据库在应付web2.0网站，特别是超大规模和高并发的SNS类型的web2.0纯动态网站已经显得力不从心，暴露了很多难以克服的问题，而非关系型的数据库则由于其本">
+<meta name="keywords" content="Database,NOSQL,Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="http://iceco1a.github.io/2019/01/29/Redis/index.html">
+<meta property="og:site_name" content="iceco1a">
+<meta property="og:description" content="简介redis是一款高性能的NOSQL系列的非关系型数据库 NOSQLNoSQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指非关系型的数据库。随着互联网web2.0网站的兴起，传统的关系数据库在应付web2.0网站，特别是超大规模和高并发的SNS类型的web2.0纯动态网站已经显得力不从心，暴露了很多难以克服的问题，而非关系型的数据库则由于其本">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-29T09:19:02.871Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis">
+<meta name="twitter:description" content="简介redis是一款高性能的NOSQL系列的非关系型数据库 NOSQLNoSQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指非关系型的数据库。随着互联网web2.0网站的兴起，传统的关系数据库在应付web2.0网站，特别是超大规模和高并发的SNS类型的web2.0纯动态网站已经显得力不从心，暴露了很多难以克服的问题，而非关系型的数据库则由于其本">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Redis" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/gallery/thumbnails/girl.jpg" alt="Redis">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-28T16:00:00.000Z">2019-01-29</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    19 minutes read (About 2917 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Redis
+            
+        </h1>
+        <div class="content">
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>redis是一款高性能的NOSQL系列的非关系型数据库</p>
+<h3 id="NOSQL"><a href="#NOSQL" class="headerlink" title="NOSQL"></a>NOSQL</h3><p>NoSQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指非关系型的数据库。随着互联网web2.0网站的兴起，传统的关系数据库在应付web2.0网站，特别是超大规模和高并发的SNS类型的web2.0纯动态网站已经显得力不从心，暴露了很多难以克服的问题，而非关系型的数据库则由于其本身的特点得到了非常迅速的发展。NoSQL数据库的产生就是为了解决大规模数据集合多重数据种类带来的挑战，尤其是大数据应用难题。</p>
+<a id="more"></a>
+<h4 id="NOSQL和关系型数据库比较"><a href="#NOSQL和关系型数据库比较" class="headerlink" title="NOSQL和关系型数据库比较"></a>NOSQL和关系型数据库比较</h4><p>优点：</p>
+<ul>
+<li>成本：nosql数据库简单易部署，基本都是开源软件，不需要像使用oracle那样花费大量成本购买使用，相比关系型数据库价格便宜。</li>
+<li>查询速度：nosql数据库将数据存储于缓存之中，关系型数据库将数据存储在硬盘中，自然查询速度远不及nosql数据库。</li>
+<li>存储数据的格式：nosql的存储格式是key,value形式、文档形式、图片形式等等，所以可以存储基础类型以及对象或者是集合等各种格式，而数据库则只支持基础类型。</li>
+<li>扩展性：关系型数据库有类似join这样的多表查询机制的限制导致扩展很艰难。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>维护的工具和资料有限，因为nosql是属于新的技术，不能和关系型数据库10几年的技术同日而语。</li>
+<li>不提供对sql的支持，如果不支持sql这样的工业标准，将产生一定用户的学习和使用成本。</li>
+<li>不提供关系型数据库对事务的处理。<h4 id="非关系型数据库的优势："><a href="#非关系型数据库的优势：" class="headerlink" title="非关系型数据库的优势："></a>非关系型数据库的优势：</h4></li>
+<li>性能NOSQL是基于键值对的，可以想象成表中的主键和值的对应关系，而且不需要经过SQL层的解析，所以性能非常高。</li>
+<li>可扩展性同样也是因为基于键值对，数据之间没有耦合性，所以非常容易水平扩展。</li>
+</ul>
+<h4 id="关系型数据库的优势："><a href="#关系型数据库的优势：" class="headerlink" title="关系型数据库的优势："></a>关系型数据库的优势：</h4><ul>
+<li>复杂查询可以用SQL语句方便的在一个表以及多个表之间做非常复杂的数据查询。</li>
+<li>事务支持使得对于安全性能很高的数据访问要求得以实现。对于这两类数据库，对方的优势就是自己的弱势，反之亦然。</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>关系型数据库与NoSQL数据库并非对立而是互补的关系，即通常情况下使用关系型数据库，在适合使用NoSQL的时候使用NoSQL数据库，让NoSQL数据库对关系型数据库的不足进行弥补。一般会将数据存储在关系型数据库中，在nosql数据库中备份存储关系型数据库的数据</p>
+<h3 id="主流的NOSQL产品"><a href="#主流的NOSQL产品" class="headerlink" title="主流的NOSQL产品"></a>主流的NOSQL产品</h3><ul>
+<li><p>键值(Key-Value)存储数据库<br>相关产品： Tokyo Cabinet/Tyrant、Redis、Voldemort、Berkeley DB<br>典型应用： 内容缓存，主要用于处理大量数据的高访问负载。<br>数据模型： 一系列键值对<br>优势： 快速查询<br>劣势： 存储的数据缺少结构化</p>
+</li>
+<li><p>列存储数据库<br>相关产品：Cassandra, HBase, Riak<br>典型应用：分布式的文件系统<br>数据模型：以列簇式存储，将同一列数据存在一起<br>优势：查找速度快，可扩展性强，更容易进行分布式扩展<br>劣势：功能相对局限</p>
+</li>
+<li><p>文档型数据库<br>  相关产品：CouchDB、MongoDB<br>  典型应用：Web应用（与Key-Value类似，Value是结构化的）<br>  数据模型： 一系列键值对<br>  优势：数据结构要求不严格<br>  劣势： 查询性能不高，而且缺乏统一的查询语法</p>
+</li>
+<li>图形(Graph)数据库<br>  相关数据库：Neo4J、InfoGrid、Infinite Graph<br>  典型应用：社交网络<br>  数据模型：图结构<br>  优势：利用图结构相关算法。<br>  劣势：需要对整个图做计算才能得出结果，不容易做分布式的集群方案。</li>
+</ul>
+<h3 id="什么是Redis"><a href="#什么是Redis" class="headerlink" title="什么是Redis"></a>什么是Redis</h3><p>Redis是用C语言开发的一个开源的高性能键值对（key-value）数据库，官方提供测试数据，50个并发执行100000个请求,读的速度是110000次/s,写的速度是81000次/s ，且Redis通过提供多种键值数据类型来适应不同场景下的存储需求，目前为止Redis支持的键值数据类型如下：</p>
+<ul>
+<li>字符串类型 string</li>
+<li>哈希类型 hash</li>
+<li>列表类型 list</li>
+<li>集合类型 set</li>
+<li>有序集合类型 sortedset<h4 id="redis的应用场景"><a href="#redis的应用场景" class="headerlink" title="redis的应用场景"></a>redis的应用场景</h4></li>
+<li>缓存（数据查询、短连接、新闻内容、商品内容等等）</li>
+<li>聊天室的在线好友列表</li>
+<li>任务队列。（秒杀、抢购、12306等等）</li>
+<li>应用排行榜</li>
+<li>网站访问统计</li>
+<li>数据过期处理（可以精确到毫秒</li>
+<li>分布式集群架构中的session分离</li>
+</ul>
+<h4 id="命令操作"><a href="#命令操作" class="headerlink" title="命令操作"></a>命令操作</h4><p>macOS下直接使用homebrew安装<br>启动Redis命令<br><code>redis-server</code><br>使用Redis命令行工具<br><code>redis-cli</code><br>基准测试工具<br><code>redis-benchmark</code><br>AOF持久化文件检测工具和修复工具<br><code>redis-check-aof</code><br>RDB持久化文件检测工具和修复工具<br><code>redis-check-dump</code></p>
+<h4 id="redis的数据结构："><a href="#redis的数据结构：" class="headerlink" title="redis的数据结构："></a>redis的数据结构：</h4><p>redis存储的是：key,value格式的数据，其中key都是字符串，value有5种不同的数据结构<br> value的数据结构：<br>(1)字符串类型string<br>(2)哈希类型hash:map格式<br>(3)列表类型list:linkedlist格式。支持重复元素<br>(4)集合类型set:不允许重复元素<br>(5)有序集合类型sortedset：不允许重复元素，且元素有顺序</p>
+<p> 字符串类型 string<br>   1.存储： set key value<br>       <code>127.0.0.1:6379&gt; set username zhangsan</code><br>       <code>OK</code></p>
+<ol start="2">
+<li>获取： get key<br> <code>127.0.0.1:6379&gt; get username</code><br> <code>&quot;zhangsan&quot;</code></li>
+<li><p>删除： del key<br> <code>127.0.0.1:6379&gt; del age</code><br> <code>(integer) 1</code></p>
+<p>哈希类型 hash</p>
+<ol>
+<li>存储： hset key field value<br><code>127.0.0.1:6379&gt; hset myhash username lisi</code><br><code>(integer) 1</code><br><code>127.0.0.1:6379&gt; hset myhash password 123</code><br><code>(integer) 1</code></li>
+<li><p>获取：<br>hget key field: 获取指定的field对应的值<br><code>127.0.0.1:6379&gt; hget myhash username</code><br><code>&quot;lisi&quot;</code><br>hgetall key：获取所有的field和value<br><code>127.0.0.1:6379&gt; hgetall myhash</code><br><code>(1) &quot;username&quot;</code><br><code>(2) &quot;lisi&quot;</code><br><code>(3) &quot;password&quot;</code><br><code>(4) &quot;123&quot;</code></p>
+</li>
+<li><p>删除： hdel key field<br><code>127.0.0.1:6379&gt; hdel myhash username</code><br><code>(integer) 1</code></p>
+</li>
+</ol>
+</li>
+</ol>
+<p>列表类型 list:可以添加一个元素到列表的头部（左边）或者尾部（右边）</p>
+<pre><code>1. 添加：
+   lpush key value: 将元素加入列表左表            
+   rpush key value：将元素加入列表右边
+   `127.0.0.1:6379&gt; lpush myList a`
+    `(integer) 1`
+    `127.0.0.1:6379&gt; lpush myList b`
+    `(integer) 2`
+    `127.0.0.1:6379&gt; rpush myList c`
+    `(integer) 3`
+2. 获取：
+    lrange key start end ：范围获取
+    `127.0.0.1:6379&gt; lrange myList 0 -1`
+    `1) &quot;b&quot;`
+    `2) &quot;a&quot;`
+    `3) &quot;c&quot;`
+3. 删除：
+    `lpop key`： 删除列表最左边的元素，并将元素返回
+    `rpop key`： 删除列表最右边的元素，并将元素返回
+</code></pre><p>集合类型 set ： 不允许重复元素</p>
+<pre><code>1. 存储：sadd key value
+    `127.0.0.1:6379&gt; sadd myset a`
+    `(integer) 1`
+    `127.0.0.1:6379&gt; sadd myset a`
+    `(integer) 0`
+2. 获取：smembers key:获取set集合中所有元素
+    `127.0.0.1:6379&gt; smembers myset`
+    `1) &quot;a&quot;`
+3. 删除：srem key value:删除set集合中的某个元素    
+    `127.0.0.1:6379&gt; srem myset a`
+    `(integer) 1`
+</code></pre><p>有序集合类型 sortedset：不允许重复元素，且元素有顺序.每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员进行从小到大的排序。</p>
+<ol>
+<li>存储：zadd key score value<br> <code>127.0.0.1:6379&gt; zadd mysort 60 zhangsan</code><br> <code>(integer) 1</code><br> <code>127.0.0.1:6379&gt; zadd mysort 50 lisi</code><br> <code>(integer) 1</code><br> <code>127.0.0.1:6379&gt; zadd mysort 80 wangwu</code><br> <code>(integer) 1</code></li>
+<li><p>获取：zrange key start end [withscores]<br> <code>127.0.0.1:6379&gt; zrange mysort 0 -1</code><br> <code>1) &quot;lisi&quot;</code><br> <code>2) &quot;zhangsan&quot;</code><br> <code>3) &quot;wangwu&quot;</code></p>
+<p> <code>127.0.0.1:6379&gt; zrange mysort 0 -1 withscores</code><br> <code>1) &quot;zhangsan&quot;</code><br> <code>2) &quot;60&quot;</code><br> <code>3) &quot;wangwu&quot;</code><br> <code>4) &quot;80&quot;</code><br> <code>5) &quot;lisi&quot;</code><br> <code>6) &quot;500&quot;</code></p>
+</li>
+<li><p>删除：zrem key value<br> <code>127.0.0.1:6379&gt; zrem mysort lisi</code><br> <code>(integer) 1</code></p>
+<p>通用命令</p>
+<ol>
+<li><code>keys *</code>: 查询所有的键</li>
+<li><code>type key</code> ： 获取键对应的value的类型</li>
+<li><code>del key</code>：删除指定的key value<h4 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h4>简介：redis是一个内存数据库，当redis服务器重启，获取电脑重启，数据会丢失，我们可以将redis内存中的数据持久化保存到硬盘的文件中。<h5 id="redis持久化机制："><a href="#redis持久化机制：" class="headerlink" title="redis持久化机制："></a>redis持久化机制：</h5></li>
+</ol>
+</li>
+<li><p>RDB：默认方式，不需要进行配置，默认就使用这种机制 在一定的间隔时间中，检测key的变化情况，然后持久化数据</p>
+<ol>
+<li><p>编辑redis.windwos.conf文件<br><code>#  after 900 sec (15 min) if at least 1 key changed</code><br><code>save 900 1</code><br><code>#   after 300 sec (5 min) if at least 10 keys changed</code><br><code>save 300 10</code><br><code>#   after 60 sec if at least 10000 keys changed</code><br><code>save 60 10000</code></p>
+</li>
+<li><p>重新启动redis服务器，并指定配置文件名称<br><code>redis-server redis.conf</code>    </p>
+</li>
+</ol>
+</li>
+<li><p>AOF：日志记录的方式，可以记录每一条命令的操作。可以每一次命令操作后，持久化数据</p>
+<pre><code>编辑redis.windwos.conf文件
+appendonly no（关闭aof） --&gt; appendonly yes （开启aof）
+`# appendfsync always ： 每一次操作都进行持久化`
+`appendfsync everysec ： 每隔一秒进行一次持久化`
+`# appendfsync no     ： 不进行持久化`
+</code></pre></li>
+</ol>
+<h4 id="Java客户端-Jedis"><a href="#Java客户端-Jedis" class="headerlink" title="Java客户端 Jedis"></a>Java客户端 Jedis</h4><p>   Jedis: 一款java操作redis数据库的工具.<br>    使用步骤：</p>
+<pre><code>1. 下载jedis的jar包
+2. 使用
+</code></pre><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//1. 获取连接</span></span><br><span class="line">Jedis jedis = <span class="hljs-keyword">new</span> Jedis(<span class="hljs-string">"localhost"</span>,<span class="hljs-number">6379</span>);</span><br><span class="line"><span class="hljs-comment">//2. 操作</span></span><br><span class="line">jedis.set(<span class="hljs-string">"username"</span>,<span class="hljs-string">"zhangsan"</span>);</span><br><span class="line"><span class="hljs-comment">//3. 关闭连接</span></span><br><span class="line">jedis.close();</span><br></pre></td></tr></table></figure>
+<p>字符串类型 string<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Test</span></span><br><span class="line"> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">StringRedis</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">     <span class="hljs-comment">//存储</span></span><br><span class="line">     jedis.set(<span class="hljs-string">"qijiang"</span>,<span class="hljs-string">"4396"</span>);</span><br><span class="line">     <span class="hljs-comment">//获取</span></span><br><span class="line">     String qijiang = jedis.get(<span class="hljs-string">"qijiang"</span>);</span><br><span class="line">     System.out.println(qijiang);</span><br><span class="line">     <span class="hljs-comment">//可以使用setex()方法存储可以指定过期时间的key value</span></span><br><span class="line">     jedis.setex(<span class="hljs-string">"activiecode"</span>,<span class="hljs-number">60</span>, <span class="hljs-string">"4398"</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p> 哈希类型 hash ： map格式 hset hget hgetAll<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Test</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">HashRedis</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">//存储hash</span></span><br><span class="line">    jedis.hset(<span class="hljs-string">"user"</span>,<span class="hljs-string">"name"</span>,<span class="hljs-string">"hukai"</span>);</span><br><span class="line">    jedis.hset(<span class="hljs-string">"user"</span>,<span class="hljs-string">"age"</span>,<span class="hljs-string">"25"</span>);</span><br><span class="line">    jedis.hset(<span class="hljs-string">"user"</span>,<span class="hljs-string">"gender"</span>,<span class="hljs-string">"male"</span>);</span><br><span class="line">    <span class="hljs-comment">//获取hash</span></span><br><span class="line">    String name = jedis.hget(<span class="hljs-string">"user"</span>, <span class="hljs-string">"name"</span>);</span><br><span class="line">    System.out.println(name);</span><br><span class="line">    <span class="hljs-comment">//获取hash中所有map中的数据</span></span><br><span class="line">    Map&lt;String, String&gt; user = jedis.hgetAll(<span class="hljs-string">"user"</span>);</span><br><span class="line">    <span class="hljs-comment">//获取keyset</span></span><br><span class="line">    Set&lt;String&gt; keySet = user.keySet();</span><br><span class="line">    <span class="hljs-keyword">for</span> (String key : keySet) &#123;</span><br><span class="line">        String value = user.get(key);</span><br><span class="line">        System.out.println(key+<span class="hljs-string">":"</span>+value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> 列表类型 list ： linkedlist格式。支持重复元素<br>    lpush / rpush<br>    lpop / rpop<br>    lrange start end : 范围获取<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">    <span class="hljs-comment">//1. 获取连接</span></span><br><span class="line">Jedis jedis = <span class="hljs-keyword">new</span> Jedis();<span class="hljs-comment">//如果使用空参构造，默认值 "localhost",6379端口</span></span><br><span class="line"><span class="hljs-comment">//2. 操作</span></span><br><span class="line"><span class="hljs-comment">// list 存储</span></span><br><span class="line">jedis.lpush(<span class="hljs-string">"mylist"</span>,<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>);<span class="hljs-comment">//从左边存</span></span><br><span class="line">jedis.rpush(<span class="hljs-string">"mylist"</span>,<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>);<span class="hljs-comment">//</span></span><br><span class="line"><span class="hljs-comment">// list 范围获取</span></span><br><span class="line">List&lt;String&gt; mylist = jedis.lrange(<span class="hljs-string">"mylist"</span>, <span class="hljs-number">0</span>, -<span class="hljs-number">1</span>);</span><br><span class="line">System.out.println(mylist);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// list 弹出</span></span><br><span class="line">String element1 = jedis.lpop(<span class="hljs-string">"mylist"</span>);<span class="hljs-comment">//c</span></span><br><span class="line">System.out.println(elemen</span><br><span class="line">String element2 = jedis.rpop(<span class="hljs-string">"mylist"</span>);<span class="hljs-comment">//c</span></span><br><span class="line">System.out.println(elemen</span><br><span class="line"><span class="hljs-comment">// list 范围获取</span></span><br><span class="line">List&lt;String&gt; mylist2 = jedis.lrange(<span class="hljs-string">"mylist"</span>, <span class="hljs-number">0</span>, -<span class="hljs-number">1</span>);</span><br><span class="line">System.out.println(mylis</span><br><span class="line"><span class="hljs-comment">//3. 关闭连接</span></span><br><span class="line">jedis.close();</span><br></pre></td></tr></table></figure></p>
+<p>4) 集合类型set： 不允许重复元素<br>            sadd<br>            smembers:获取所有元素<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Test</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SetRedis</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">//set存储</span></span><br><span class="line">    jedis.sadd(<span class="hljs-string">"myset"</span>,<span class="hljs-string">"java"</span>,<span class="hljs-string">"php"</span>,<span class="hljs-string">"golang"</span>);</span><br><span class="line">    <span class="hljs-comment">//sert集合获取</span></span><br><span class="line">    Set&lt;String&gt; myset = jedis.smembers(<span class="hljs-string">"myset"</span>);</span><br><span class="line">    System.out.println(myset);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>5) 有序集合类型 sortedset：不允许重复元素，且元素有顺序<br>                zadd<br>                zrange<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Test</span></span><br><span class="line"> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SortedSetRedis</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">     <span class="hljs-comment">//sortedset存储</span></span><br><span class="line">     jedis.zadd(<span class="hljs-string">"mysortedset"</span>,<span class="hljs-number">3</span>, <span class="hljs-string">"众星之子"</span>);</span><br><span class="line">     jedis.zadd(<span class="hljs-string">"mysortedset"</span>,<span class="hljs-number">999</span>,<span class="hljs-string">"疾风剑豪"</span>);</span><br><span class="line">     jedis.zadd(<span class="hljs-string">"mysortedset"</span>,<span class="hljs-number">30</span>,<span class="hljs-string">"德玛西亚皇子"</span>);</span><br><span class="line">     <span class="hljs-comment">//sortedSet获取</span></span><br><span class="line">     Set&lt;String&gt; mysortedset = jedis.zrange(<span class="hljs-string">"mysortedset"</span>, <span class="hljs-number">0</span>, -<span class="hljs-number">1</span>);</span><br><span class="line">     System.out.println(mysortedset);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>jedis连接池： JedisPool</p>
+<pre><code>* 使用：
+    1. 创建JedisPool连接池对象
+    2. 调用方法 getResource()方法获取Jedis连接
+</code></pre> <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">	 <span class="hljs-comment">//0.创建一个配置对象</span></span><br><span class="line">     JedisPoolConfig config = <span class="hljs-keyword">new</span> JedisPoolConfig();</span><br><span class="line">	 config.setMaxTotal(<span class="hljs-number">50</span>);</span><br><span class="line">	 config.setMaxIdle(<span class="hljs-number">10</span>);</span><br><span class="line">	</span><br><span class="line">	 <span class="hljs-comment">//1.创建Jedis连接池对象</span></span><br><span class="line">	 JedisPool jedisPool = <span class="hljs-keyword">new</span> JedisPool(config,<span class="hljs-string">"localhost"</span>,<span class="hljs-number">6379</span>);</span><br><span class="line">	</span><br><span class="line">	 <span class="hljs-comment">//2.获取连接</span></span><br><span class="line">	 Jedis jedis = jedisPool.getResource();</span><br><span class="line">	 <span class="hljs-comment">//3. 使用</span></span><br><span class="line">	 jedis.set(<span class="hljs-string">"hehe"</span>,<span class="hljs-string">"heihei"</span>);</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	 <span class="hljs-comment">//4. 关闭 归还到连接池中</span></span><br><span class="line">	 jedis.close();</span><br><span class="line">```		</span><br><span class="line"> 连接池工具类</span><br><span class="line"> ``` java</span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JedisPoolUtils</span> </span>&#123;</span><br><span class="line">     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> JedisPool jedisPool;</span><br><span class="line">				</span><br><span class="line">	   <span class="hljs-keyword">static</span>&#123;</span><br><span class="line">		 <span class="hljs-comment">//读取配置文件</span></span><br><span class="line">              InputStream is =JedisPoolUtils.class.getClassLoader()</span><br><span class="line">              .getResourceAsStream(<span class="hljs-string">"jedis.properties"</span>);</span><br><span class="line">	      <span class="hljs-comment">//创建Properties对象</span></span><br><span class="line">	      Properties pro = <span class="hljs-keyword">new</span> Properties();</span><br><span class="line">	      <span class="hljs-comment">//关联文件</span></span><br><span class="line">	      <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">	          pro.load(is);</span><br><span class="line">	      &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;</span><br><span class="line">	          e.printStackTrace();</span><br><span class="line">	      &#125;</span><br><span class="line">	      <span class="hljs-comment">//获取数据，设置到JedisPoolConfig中</span></span><br><span class="line">	      JedisPoolConfig config = <span class="hljs-keyword">new</span> JedisPoolConfig();		                           config.setMaxTotal(Integer.parseInt(pro.getProperty(<span class="hljs-string">"maxTotal"</span>)));</span><br><span class="line">          config.setMaxIdle(Integer.parseInt(pro.getProperty(<span class="hljs-string">"maxIdle"</span>)));</span><br><span class="line">				</span><br><span class="line">		  <span class="hljs-comment">//初始化JedisPool</span></span><br><span class="line">		  jedisPool = <span class="hljs-keyword">new</span> JedisPool(config,pro.getProperty(<span class="hljs-string">"host"</span>),</span><br><span class="line">          Integer.parseInt(pro.getProperty(<span class="hljs-string">"port"</span>)));</span><br><span class="line">        </span><br><span class="line">        &#125;</span><br><span class="line">				</span><br><span class="line">				</span><br><span class="line">		<span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">		 * 获取连接方法</span></span><br><span class="line"><span class="hljs-comment">		 */</span></span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Jedis <span class="hljs-title">getJedis</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">		    <span class="hljs-keyword">return</span> jedisPool.getResource();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Database/">Database</a>, <a class="has-link-grey -link" href="/tags/NOSQL/">NOSQL</a>, <a class="has-link-grey -link" href="/tags/Redis/">Redis</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="http://plmk8ppkc.bkt.clouddn.com/IMG_2165.jpg" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/24/MySQL基础/">
+                <span class="level-item">MySQL基础</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="http://plmk8ppkc.bkt.clouddn.com/IMG_2113.JPG" alt="HuKai">
+                    
+                    <p class="is-size-4 is-block">
+                        HuKai
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Java Developer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Suzhou,China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        5
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/iceco1a">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/iceco1a">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/iceco1a" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">iceco1a</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/Database/" style="font-size: 20px;">Database</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/NOSQL/" style="font-size: 10px;">NOSQL</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a>
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Database/">
+                        <span class="tag">Database</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Java/">
+                        <span class="tag">Java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/NOSQL/">
+                        <span class="tag">NOSQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Redis/">
+                        <span class="tag">Redis</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+            
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#简介">
+        <span class="has-mr-6">1</span>
+        <span>简介</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#NOSQL">
+        <span class="has-mr-6">1.1</span>
+        <span>NOSQL</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#NOSQL和关系型数据库比较">
+        <span class="has-mr-6">1.1.1</span>
+        <span>NOSQL和关系型数据库比较</span>
+        </a></li><li>
+        <a class="is-flex" href="#非关系型数据库的优势：">
+        <span class="has-mr-6">1.1.2</span>
+        <span>非关系型数据库的优势：</span>
+        </a></li><li>
+        <a class="is-flex" href="#关系型数据库的优势：">
+        <span class="has-mr-6">1.1.3</span>
+        <span>关系型数据库的优势：</span>
+        </a></li><li>
+        <a class="is-flex" href="#总结">
+        <span class="has-mr-6">1.1.4</span>
+        <span>总结</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#主流的NOSQL产品">
+        <span class="has-mr-6">1.2</span>
+        <span>主流的NOSQL产品</span>
+        </a></li><li>
+        <a class="is-flex" href="#什么是Redis">
+        <span class="has-mr-6">1.3</span>
+        <span>什么是Redis</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#redis的应用场景">
+        <span class="has-mr-6">1.3.1</span>
+        <span>redis的应用场景</span>
+        </a></li><li>
+        <a class="is-flex" href="#命令操作">
+        <span class="has-mr-6">1.3.2</span>
+        <span>命令操作</span>
+        </a></li><li>
+        <a class="is-flex" href="#redis的数据结构：">
+        <span class="has-mr-6">1.3.3</span>
+        <span>redis的数据结构：</span>
+        </a></li><li>
+        <a class="is-flex" href="#持久化">
+        <span class="has-mr-6">1.3.4</span>
+        <span>持久化</span>
+        </a></li><li>
+        <a class="is-flex" href="#Java客户端-Jedis">
+        <span class="has-mr-6">1.3.5</span>
+        <span>Java客户端 Jedis</span>
+        </a></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/01/29/Redis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/girl.jpg" alt="Redis">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-28T16:00:00.000Z">2019-01-29</time></div>
+                    <a href="/2019/01/29/Redis/" class="has-link-black-ter is-size-6">Redis</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/24/MySQL基础/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/ssd.png" alt="MySQL基础">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-23T16:00:00.000Z">2019-01-24</time></div>
+                    <a href="/2019/01/24/MySQL基础/" class="has-link-black-ter is-size-6">MySQL基础</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/23/Java IO/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/leimu.png" alt="Java IO流">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-22T16:00:00.000Z">2019-01-23</time></div>
+                    <a href="/2019/01/23/Java IO/" class="has-link-black-ter is-size-6">Java IO流</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/18/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-18T09:00:43.863Z">2019-01-18</time></div>
+                    <a href="/2019/01/18/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#简介">
+        <span class="has-mr-6">1</span>
+        <span>简介</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#NOSQL">
+        <span class="has-mr-6">1.1</span>
+        <span>NOSQL</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#NOSQL和关系型数据库比较">
+        <span class="has-mr-6">1.1.1</span>
+        <span>NOSQL和关系型数据库比较</span>
+        </a></li><li>
+        <a class="is-flex" href="#非关系型数据库的优势：">
+        <span class="has-mr-6">1.1.2</span>
+        <span>非关系型数据库的优势：</span>
+        </a></li><li>
+        <a class="is-flex" href="#关系型数据库的优势：">
+        <span class="has-mr-6">1.1.3</span>
+        <span>关系型数据库的优势：</span>
+        </a></li><li>
+        <a class="is-flex" href="#总结">
+        <span class="has-mr-6">1.1.4</span>
+        <span>总结</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#主流的NOSQL产品">
+        <span class="has-mr-6">1.2</span>
+        <span>主流的NOSQL产品</span>
+        </a></li><li>
+        <a class="is-flex" href="#什么是Redis">
+        <span class="has-mr-6">1.3</span>
+        <span>什么是Redis</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#redis的应用场景">
+        <span class="has-mr-6">1.3.1</span>
+        <span>redis的应用场景</span>
+        </a></li><li>
+        <a class="is-flex" href="#命令操作">
+        <span class="has-mr-6">1.3.2</span>
+        <span>命令操作</span>
+        </a></li><li>
+        <a class="is-flex" href="#redis的数据结构：">
+        <span class="has-mr-6">1.3.3</span>
+        <span>redis的数据结构：</span>
+        </a></li><li>
+        <a class="is-flex" href="#持久化">
+        <span class="has-mr-6">1.3.4</span>
+        <span>持久化</span>
+        </a></li><li>
+        <a class="is-flex" href="#Java客户端-Jedis">
+        <span class="has-mr-6">1.3.5</span>
+        <span>Java客户端 Jedis</span>
+        </a></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/01/29/Redis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/girl.jpg" alt="Redis">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-28T16:00:00.000Z">2019-01-29</time></div>
+                    <a href="/2019/01/29/Redis/" class="has-link-black-ter is-size-6">Redis</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/24/MySQL基础/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/ssd.png" alt="MySQL基础">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-23T16:00:00.000Z">2019-01-24</time></div>
+                    <a href="/2019/01/24/MySQL基础/" class="has-link-black-ter is-size-6">MySQL基础</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/23/Java IO/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/leimu.png" alt="Java IO流">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-22T16:00:00.000Z">2019-01-23</time></div>
+                    <a href="/2019/01/23/Java IO/" class="has-link-black-ter is-size-6">Java IO流</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/18/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-18T09:00:43.863Z">2019-01-18</time></div>
+                    <a href="/2019/01/18/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Redis" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 iceco1a&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
