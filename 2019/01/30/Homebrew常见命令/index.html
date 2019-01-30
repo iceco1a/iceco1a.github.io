@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Homebrew 相关操作 - iceco1a</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="homebrew常见命令，以安装Tomcat为例安装Tomcat(安装的是最新的版本)brew install tomcat卸载 Tomcatbrew uninstall tomcat更新brew upgrade tomcat更新不会删除原来的，相当于重新安装一个最新版，也就是说配置不能共用 切换版本brew switch tomcat 8.5.4">
+<meta name="keywords" content="homebrew,macOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Homebrew 相关操作">
+<meta property="og:url" content="http://iceco1a.github.io/2019/01/30/Homebrew常见命令/index.html">
+<meta property="og:site_name" content="iceco1a">
+<meta property="og:description" content="homebrew常见命令，以安装Tomcat为例安装Tomcat(安装的是最新的版本)brew install tomcat卸载 Tomcatbrew uninstall tomcat更新brew upgrade tomcat更新不会删除原来的，相当于重新安装一个最新版，也就是说配置不能共用 切换版本brew switch tomcat 8.5.4">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-30T11:44:12.859Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Homebrew 相关操作">
+<meta name="twitter:description" content="homebrew常见命令，以安装Tomcat为例安装Tomcat(安装的是最新的版本)brew install tomcat卸载 Tomcatbrew uninstall tomcat更新brew upgrade tomcat更新不会删除原来的，相当于重新安装一个最新版，也就是说配置不能共用 切换版本brew switch tomcat 8.5.4">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Homebrew 相关操作" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/gallery/thumbnails/dsgreg.png" alt="Homebrew 相关操作">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-29T16:00:00.000Z">2019-01-30</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 minutes read (About 1139 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Homebrew 相关操作
+            
+        </h1>
+        <div class="content">
+            <p>homebrew常见命令，以安装Tomcat为例<br>安装Tomcat(安装的是最新的版本)<br><code>brew install tomcat</code><br>卸载 Tomcat<br><code>brew uninstall tomcat</code><br>更新<br><code>brew upgrade tomcat</code><br>更新不会删除原来的，相当于重新安装一个最新版，也就是说配置不能共用</p>
+<p>切换版本<br><code>brew switch tomcat 8.5.4</code><br><a id="more"></a><br>升级会出现几个不同版本的 Tomcat 同时存在，切换到指定的版本就很有必要了</p>
+<p>卸载<br>卸载全部旧版本<br><code>brew cleanup tomcat</code><br>卸载当前版本<br><code>brew remove tomcat</code><br>卸载全部版本<br><code>brew uninstall --force tomcat</code><br>卸载指定版本<br><code>brew switch tomcat 8.5.4</code><br><code>brew remove tomcat</code><br>查看已安装的 Tomcat 的版本和最新的版本信息<br><code>brew info tomcat</code><br>查看可安装的 Tomcat 的所有版本<br><code>brew search tomcat</code></p>
+<p>输出:<br><code>homebrew/versions/tomcat6</code><br><code>homebrew/versions/tomcat7</code><br><code>tomcat</code><br><code>tomcat-native</code><br>安装指定版本的 Tomcat，例如 tomcat6<br><code>brew install homebrew/versions/tomcat6</code><br>列出已经安装的软件<br><code>brew list</code><br>查看 brew 的帮助<br><code>man brew</code><br>列出所有安装的软件里可以升级的<br><code>brew outdated</code><br>清理不需要的版本极其安装包缓存<br><code>brew cleanup</code></p>
+<p>Homebrew网络修改问题<br>在国内的网络环境下使用 Homebrew 安装软件的过程中可能会长时间卡在 Updating Homebrew 这个步骤。<br>例：执行 brew install composer 命令<br><code>➜  ~ brew install composer</code><br><code>Updating Homebrew...</code><br>如果碰到长时间卡在这里，参考以下 2 种处理方法<br>方法1：按住 control + c 取消本次更新操作<br><code>➜  ~ brew install composer</code><br><code>Updating Homebrew...</code><br><code>^C</code><br>按住 control + c 之后命令行会显示 ^C，就代表已经取消了 Updating Homebrew 操作<br>大概不到 1 秒钟之后就会去执行我们真正需要的安装操作了</p>
+<p><code>➜  ~ brew install composer</code><br><code>Updating Homebrew...</code><br><code>^C==&gt; Satisfying dependencies</code><br><code>==&gt; Downloading https://getcomposer.org/download/1.7.2/composer.phar</code><br><code>...</code></p>
+<p>这个方法是临时的、一次性的</p>
+<p>方法2：使用 Alibaba 的 Homebrew 镜像源进行加速<br>平时我们执行 brew 命令安装软件的时候，跟以下 3 个仓库地址有关：<br>brew.git<br>homebrew-core.git<br>homebrew-bottles<br>通过以下操作将这 3 个仓库地址全部替换为 Alibaba 提供的地址</p>
+<ol>
+<li>替换/还原 brew.git 仓库地址替换成阿里巴巴的 brew.git 仓库地址:<br><code>cd &quot;$(brew --repo)&quot;</code><br><code>git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git</code></li>
+</ol>
+<p>#=======================================================<br> 还原为官方提供的 brew.git 仓库地址<br><code>cd &quot;$(brew --repo)&quot;</code><br><code>git remote set-url origin https://github.com/Homebrew/brew.git</code></p>
+<ol start="2">
+<li>替换/还原 homebrew-core.git 仓库地址<br>替换成阿里巴巴的 homebrew-core.git 仓库地址:<br><code>cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;</code><br><code>git remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git</code></li>
+</ol>
+<p>#=======================================================<br> 还原为官方提供的 homebrew-core.git 仓库地址<br><code>cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;</code><br><code>git remote set-url origin https://github.com/Homebrew/homebrew-core.git</code></p>
+<ol start="3">
+<li>替换/还原 homebrew-bottles 访问地址<br>这个步骤跟你的 macOS 系统使用的 shell 版本有关系<br>所以，先来查看当前使用的 shell 版本<br><code>echo $SHELL</code><br>3.1 zsh 终端操作方式<br>替换成阿里巴巴的 homebrew-bottles 访问地址:<br><code>echo &#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles&#39; &gt;&gt; ~/.zshrc</code><br><code>source ~/.zshrc</code></li>
+</ol>
+<p>#=======================================================<br> 还原为官方提供的 homebrew-bottles 访问地址<br><code>vi ~/.zshrc</code><br> 然后，删除 HOMEBREW_BOTTLE_DOMAIN 这一行配置<br><code>source ~/.zshrc</code><br>3.2 bash 终端操作方式<br> 替换 homebrew-bottles 访问 URL:<br><code>echo &#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles&#39; &gt;&gt; ~/.bash_profile</code><br><code>source ~/.bash_profile</code></p>
+<p>#=======================================================<br> 还原为官方提供的 homebrew-bottles 访问地址<br><code>vi ~/.bash_profile</code><br> 然后，删除 HOMEBREW_BOTTLE_DOMAIN 这一行配置<br><code>source ~/.bash_profile</code></p>
+<p>zsh配置代理<br>shadowsocks设置为：</p>
+<ul>
+<li>打开shadowsocks</li>
+<li>自动代理模式</li>
+<li>服务器（香港阿里云）</li>
+</ul>
+<p>以zsh作为说明<br><code>➜  ~ vim ~/.zshrc</code></p>
+<p>添加如下代理配置:<br><code>#proxy list</code><br><code>alias proxy=&#39;export all_proxy=socks5://127.0.0.1:1080&#39;</code><br><code>alias unproxy=&#39;unset all_proxy&#39;</code></p>
+<p>:wq保存退出<br><code>➜  ~ source ~/.zshrc</code></p>
+<p>使用proxy前先查看下当前的ip地址：<br><code>➜  ~ curl [ip.cn](http://ip.cn)</code><br> 当前 IP：112.64.xxx.xx 来自：上海市 联通</p>
+<p>或者<br><code>➜  ~ curl [cip.cc](http://cip.cc)</code><br>IP      : 140.206.97.42<br>地址      : 中国  上海<br>数据二     : 上海市 | 联通<br>URL     : <a href="http://www.cip.cc/140.206.97.42" target="_blank" rel="noopener">http://www.cip.cc/140.206.97.42</a></p>
+<p>执行:<br><code>➜  ~ proxy</code><br><code>➜  ~ curl [ip.cn](http://ip.cn)</code><br>当前 IP：47.89.xx.xxx 来自：香港特别行政区 阿里云</p>
+<p>如果ip.cn不能用，可以换个类似的站点查询<br><code>➜  ~ curl [cip.cc](http://cip.cc)</code><br>IP      : 45.78.47.19<br>地址      : 美国  加利福尼亚<br>数据二     : 美国 | 加利福尼亚州洛杉矶市 IT7 Networks<br>URL     : <a href="http://www.cip.cc/45.78.47.19" target="_blank" rel="noopener">http://www.cip.cc/45.78.47.19</a></p>
+<p>没问题，终端走了代理，brew update顺畅了- -<br>如果不需要走代理，执行：<br><code>➜  ~ unproxy</code><br><code>➜  ~ curl [ip.cn](http://ip.cn)</code><br>当前 IP：112.64.xxx.xx 来自：上海市 联通</p>
+<p>proxychains-ng<br><code>➜  ~ brew install proxychains-ng</code><br>Updating Homebrew…</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/homebrew/">homebrew</a>, <a class="has-link-grey -link" href="/tags/macOS/">macOS</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Suka dengan artikel ini? Bantu penulis dengan donasi melalui</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="http://plmk8ppkc.bkt.clouddn.com/IMG_2165.jpg" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/29/Redis/">
+                <span class="level-item">Redis</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="http://plmk8ppkc.bkt.clouddn.com/IMG_2113.JPG" alt="HuKai">
+                    
+                    <p class="is-size-4 is-block">
+                        HuKai
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Java Developer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Suzhou,China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Articles
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        5
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Catégories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        7
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/iceco1a">
+                SUIVRE</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/iceco1a">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Liens
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/iceco1a" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">iceco1a</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catégories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Nuage de tags
+        </h3>
+        <a href="/tags/Database/" style="font-size: 20px;">Database</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/NOSQL/" style="font-size: 10px;">NOSQL</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a>
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Database/">
+                        <span class="tag">Database</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Java/">
+                        <span class="tag">Java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/NOSQL/">
+                        <span class="tag">NOSQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Redis/">
+                        <span class="tag">Redis</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/homebrew/">
+                        <span class="tag">homebrew</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/macOS/">
+                        <span class="tag">macOS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+            
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            
+        </div>
+    </div>
+</div>
+
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Récents
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/01/30/Homebrew常见命令/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/dsgreg.png" alt="Homebrew 相关操作">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-29T16:00:00.000Z">2019-01-30</time></div>
+                    <a href="/2019/01/30/Homebrew常见命令/" class="has-link-black-ter is-size-6">Homebrew 相关操作</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/29/Redis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/girl.jpg" alt="Redis">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-28T16:00:00.000Z">2019-01-29</time></div>
+                    <a href="/2019/01/29/Redis/" class="has-link-black-ter is-size-6">Redis</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/24/MySQL基础/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/ssd.png" alt="MySQL基础">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-23T16:00:00.000Z">2019-01-24</time></div>
+                    <a href="/2019/01/24/MySQL基础/" class="has-link-black-ter is-size-6">MySQL基础</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/23/Java IO/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/leimu.png" alt="Java IO流">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-22T16:00:00.000Z">2019-01-23</time></div>
+                    <a href="/2019/01/23/Java IO/" class="has-link-black-ter is-size-6">Java IO流</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/18/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-18T09:00:43.863Z">2019-01-18</time></div>
+                    <a href="/2019/01/18/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Récents
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/01/30/Homebrew常见命令/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/dsgreg.png" alt="Homebrew 相关操作">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-29T16:00:00.000Z">2019-01-30</time></div>
+                    <a href="/2019/01/30/Homebrew常见命令/" class="has-link-black-ter is-size-6">Homebrew 相关操作</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/29/Redis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/girl.jpg" alt="Redis">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-28T16:00:00.000Z">2019-01-29</time></div>
+                    <a href="/2019/01/29/Redis/" class="has-link-black-ter is-size-6">Redis</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/24/MySQL基础/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/ssd.png" alt="MySQL基础">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-23T16:00:00.000Z">2019-01-24</time></div>
+                    <a href="/2019/01/24/MySQL基础/" class="has-link-black-ter is-size-6">MySQL基础</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/23/Java IO/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/leimu.png" alt="Java IO流">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-22T16:00:00.000Z">2019-01-23</time></div>
+                    <a href="/2019/01/23/Java IO/" class="has-link-black-ter is-size-6">Java IO流</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/01/18/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-18T09:00:43.863Z">2019-01-18</time></div>
+                    <a href="/2019/01/18/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Homebrew 相关操作" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 iceco1a&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Articles',
+                PAGES: 'Pages',
+                CATEGORIES: 'Catégories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
