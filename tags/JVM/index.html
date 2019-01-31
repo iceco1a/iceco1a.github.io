@@ -2,14 +2,14 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: homebrew - iceco1a</title>
+<title>Tag: JVM - iceco1a</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="iceco1a">
-<meta property="og:url" content="http://iceco1a.github.io/tags/homebrew/index.html">
+<meta property="og:url" content="http://iceco1a.github.io/tags/JVM/index.html">
 <meta property="og:site_name" content="iceco1a">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -133,7 +133,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">homebrew</a></li>
+            <li class="is-active"><a href="#" aria-current="page">JVM</a></li>
         </ul>
         </nav>
     </div>
@@ -142,8 +142,8 @@
     <div class="card">
     
     <div class="card-image">
-        <a href="/2019/01/30/Homebrew常见命令/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/thumbnails/dsgreg.png" alt="Homebrew相关操作">
+        <a href="/2019/01/31/对于Java平台的理解/" class="image is-7by1">
+            <img class="thumbnail" src="/gallery/thumbnails/dsadewcfew.png" alt="对于Java平台的理解">
         </a>
     </div>
     
@@ -151,13 +151,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-29T16:00:00.000Z">2019-01-30</time>
+                <time class="level-item has-text-grey" datetime="2019-01-30T16:00:00.000Z">2019-01-31</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    8 minutes read (About 1139 words)
+                    13 minutes read (About 2020 words)
                 </span>
                 
             </div>
@@ -165,19 +165,20 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/01/30/Homebrew常见命令/">Homebrew相关操作</a>
+                <a class="has-link-black-ter" href="/2019/01/31/对于Java平台的理解/">对于Java平台的理解</a>
             
         </h1>
         <div class="content">
-            <p>homebrew常见命令，以安装Tomcat为例<br>安装Tomcat(安装的是最新的版本)<br><code>brew install tomcat</code><br>卸载 Tomcat<br><code>brew uninstall tomcat</code><br>更新<br><code>brew upgrade tomcat</code><br>更新不会删除原来的，相当于重新安装一个最新版，也就是说配置不能共用</p>
-<p>切换版本<br><code>brew switch tomcat 8.5.4</code><br></p>
+            <h3 id="对于Java平台的理解"><a href="#对于Java平台的理解" class="headerlink" title="对于Java平台的理解"></a>对于Java平台的理解</h3><h5 id="谈谈你对Java平台的理解？“Java是解释执行”，这句话正确吗？"><a href="#谈谈你对Java平台的理解？“Java是解释执行”，这句话正确吗？" class="headerlink" title="谈谈你对Java平台的理解？“Java是解释执行”，这句话正确吗？"></a>谈谈你对Java平台的理解？“Java是解释执行”，这句话正确吗？</h5><p> Java本身是一种面向对象的语言，最显著的特性有两个方面，一是所谓的“书写一次，到处运行”（Write once, run anywhere），能够非常容易地获得跨平台能力；另外就是垃圾收集（GC, Garbage Collection），Java通过垃圾收集器（Garbage Collector）回收分配内存，大部分情况下，程序员不需要自己操心内存的分配和回收。 </p>
+<p>我们日常会接触到JRE（Java Runtime Environment）或JDK（JavaDevelopment Kit）。 JRE，也就是Java运行环境，包含了JVM和Java类库，以及一些模块等。<br>而JDK可以看作是JRE的一个超集，提供了更多工具，比如编译器、各种诊断工具等。</p>
+<p>对于“Java是解释执行”这句话，这个说法不太准确。我们开发的Java的源代码，首先通过Javac编译成为字节码（bytecode），然后，在运行时，通过 Java虚拟机（JVM）内嵌的解释器将字节码转换成为最终的机器码。但是常见的JVM，比如我们大多数情况使用的Oracle JDK提供的Hotspot JVM，都提供了JIT（Just-In-Time）编译器，也就是通常所说的动态编译器，JIT能够在运行时将热点代码编译成机器码，这种情况下部分热点代码就属于编译执行，而不是解释执行了。<br></p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/01/30/Homebrew常见命令/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/01/31/对于Java平台的理解/#more">Read More</a>
                 </div>
             </div>
         </div>
